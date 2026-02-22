@@ -2,11 +2,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { toast } from "@/components/ui/sonner";
+import { useI18n } from "@/lib/i18n";
 
 const CONTACT_EMAIL = "agnawaleayantayoesdras@gmail.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 const Contact = () => {
+  const { locale } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({
@@ -16,6 +18,60 @@ const Contact = () => {
     website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const content = locale === "fr"
+    ? {
+        sectionLabel: "Contact",
+        heading: "Travaillons",
+        headingAccent: "ensemble",
+        intro:
+          "Vous avez un projet en tete ou une opportunite ? N'hesitez pas a me contacter.",
+        form: {
+          namePlaceholder: "Votre nom",
+          emailPlaceholder: "Votre email",
+          messagePlaceholder: "Votre message...",
+          sendingLabel: "Envoi en cours...",
+          submitLabel: "Envoyer",
+        },
+        notices: {
+          success: "Message envoye avec succes.",
+          error: "Impossible d'envoyer le message. Reessaie plus tard.",
+          submitError: "Erreur lors de l'envoi.",
+          subjectPrefix: "Nouveau message portfolio",
+        },
+        infos: [
+          { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
+          { Icon: Phone, label: "Telephone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: MapPin, label: "Localisation", value: "Calavi, Womey - Benin", wrapAnywhere: false },
+        ],
+      }
+    : {
+        sectionLabel: "Contact",
+        heading: "Let's",
+        headingAccent: "work together",
+        intro:
+          "Do you have a project in mind or an opportunity? Feel free to contact me.",
+        form: {
+          namePlaceholder: "Your name",
+          emailPlaceholder: "Your email",
+          messagePlaceholder: "Your message...",
+          sendingLabel: "Sending...",
+          submitLabel: "Send",
+        },
+        notices: {
+          success: "Message sent successfully.",
+          error: "Unable to send the message. Please try again later.",
+          submitError: "Error while sending message.",
+          subjectPrefix: "New portfolio message",
+        },
+        infos: [
+          { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
+          { Icon: Phone, label: "Phone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: MapPin, label: "Location", value: "Calavi, Womey - Benin", wrapAnywhere: false },
+        ],
+      };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,7 +90,7 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `Nouveau message portfolio - ${formData.name}`,
+          _subject: `${content.notices.subjectPrefix} - ${formData.name}`,
           _captcha: "false",
           _template: "table",
           _honey: formData.website,
@@ -50,13 +106,13 @@ const Contact = () => {
         response.ok && (result.success === true || result.success === "true");
 
       if (!isSuccess) {
-        throw new Error(result.message || "Erreur lors de l'envoi.");
+        throw new Error(result.message || content.notices.submitError);
       }
 
-      toast.success("Message envoyé avec succès.");
+      toast.success(content.notices.success);
       setFormData({ name: "", email: "", message: "", website: "" });
     } catch {
-      toast.error("Impossible d'envoyer le message. Réessaie plus tard.");
+      toast.error(content.notices.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -71,14 +127,13 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-2">
-            Contact
+            {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Travaillons <span className="text-gradient-gold">ensemble</span>
+            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
           <p className="text-muted-foreground mb-12 max-w-lg">
-            Vous avez un projet en tête ou une opportunité ? N'hésitez pas à me
-            contacter.
+            {content.intro}
           </p>
         </motion.div>
 
@@ -90,12 +145,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-2 space-y-4 md:space-y-5 md:h-full"
           >
-            {[
-              { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
-              { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
-              { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
-              { Icon: MapPin, label: "Localisation", value: "Calavi, Womey – Bénin", wrapAnywhere: false },
-            ].map(({ Icon, label, value, wrapAnywhere }) => (
+            {content.infos.map(({ Icon, label, value, wrapAnywhere }) => (
               <div
                 key={label}
                 className="w-full flex items-start gap-3 sm:gap-4 p-4 rounded-lg bg-card border border-border"
@@ -128,7 +178,7 @@ const Contact = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               <input
                 type="text"
-                placeholder="Votre nom"
+                placeholder={content.form.namePlaceholder}
                 required
                 value={formData.name}
                 onChange={(e) =>
@@ -138,7 +188,7 @@ const Contact = () => {
               />
               <input
                 type="email"
-                placeholder="Votre email"
+                placeholder={content.form.emailPlaceholder}
                 required
                 value={formData.email}
                 onChange={(e) =>
@@ -160,7 +210,7 @@ const Contact = () => {
             </div>
             <div className="flex-1 min-h-[180px]">
               <textarea
-                placeholder="Votre message..."
+                placeholder={content.form.messagePlaceholder}
                 rows={5}
                 required
                 value={formData.message}
@@ -176,7 +226,7 @@ const Contact = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <Send size={16} />
-              {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+              {isSubmitting ? content.form.sendingLabel : content.form.submitLabel}
             </button>
           </motion.form>
         </div>

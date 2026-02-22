@@ -1,7 +1,25 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowDown, Github, LinkedinIcon, Mail, MessageCircle } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 const Hero = () => {
+  const { locale } = useI18n();
+  const content = locale === "fr"
+    ? {
+        role: "Analyste Programmeur · Full-Stack & Mobile",
+        description:
+          "Analyste programmeur avec 1 an d'experience, passionne par la creation d'applications web & mobile modernes et performantes. Disponible pour des projets freelances et contrats de travail.",
+        contactCta: "Contactez-moi",
+        projectsCta: "Voir mes projets",
+      }
+    : {
+        role: "Software Analyst - Full-Stack & Mobile",
+        description:
+          "Software analyst with 1 year of experience, passionate about building modern and performant web and mobile applications. Available for freelance projects and work contracts.",
+        contactCta: "Contact me",
+        projectsCta: "View my projects",
+      };
+
   return (
     <section
       id="hero"
@@ -14,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-4">
-            Analyste Programmeur · Full-Stack & Mobile
+            {content.role}
           </p>
         </motion.div>
 
@@ -34,9 +52,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed px-1"
         >
-          Analyste programmeur avec 1 an d'expérience, passionné par la
-          création d'applications web & mobile modernes et performantes.
-          Disponible pour des projets freelances et contrats de travail.
+          {content.description}
         </motion.p>
 
         <motion.div
@@ -54,7 +70,7 @@ const Hero = () => {
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full sm:w-auto"
           >
             <Mail size={16} />
-            Contactez-moi
+            {content.contactCta}
           </a>
           <a
             href="#projects"
@@ -64,7 +80,7 @@ const Hero = () => {
             }}
             className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto"
           >
-            Voir mes projets
+            {content.projectsCta}
           </a>
         </motion.div>
 
@@ -76,7 +92,7 @@ const Hero = () => {
         >
           {[
             { Icon: Github, href: "https://github.com/Sadias061", label: "GitHub" },
-            { Icon: Linkedin, href: "https://www.linkedin.com/in/esdras-agnawale-sadias", label: "LinkedIn" },
+            { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/esdras-agnawale-sadias", label: "LinkedIn" },
             { Icon: MessageCircle, href: "https://wa.me/2290190705060", label: "WhatsApp" },
             { Icon: Mail, href: "mailto:agnawaleayantayoesdras@gmail.com", label: "Email" },
           ].map(({ Icon, href, label }) => (

@@ -1,37 +1,76 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase } from "lucide-react";
-
-const experiences = [
-  {
-    role: "Développeur mobile",
-    company: "RAB-TECH",
-    period: "juil. 2024 - août 2024",
-    description:
-      "Initialisation à flutter et création d’une application mobile de location de voitures, Locar",
-    techs: ["Flutter", "Dart", "Git"],
-  },
-  {
-    role: "Développeur Full-stack",
-    company: "DIHA'S",
-    period: "sept. 2025 - nov. 2025",
-    description:
-      "Développement d'APIs RESTful avec Node.js. Développement d’un site de type blog sous Laravel, destiné à la publication et à la gestion des articles et contenus de l’entreprise. Analys et conception d'un dashboard de gestion et suivi d'évènements islamique",
-    techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
-  },
-  {
-    role: "Développeur Full-stack",
-    company: "Projet académique - Contrat",
-    period: "mars 2025 - Présent",
-    description:
-      "Développement d’un système de gestion des réservations de salles de réunion et d’espaces de travail, avec intégration d’un module de paiement — Projet de soutenance. Mention : Excellent",
-    techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 const Experience = () => {
+  const { locale } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const content = locale === "fr"
+    ? {
+        sectionLabel: "Parcours",
+        heading: "Mes",
+        headingAccent: "experiences",
+        items: [
+          {
+            role: "Developpeur Full-stack",
+            company: "Projet academique - Contrat",
+            period: "mars 2025 - Present",
+            description:
+              "Developpement d'un systeme de gestion des reservations de salles de reunion et d'espaces de travail, avec integration d'un module de paiement - Projet de soutenance. Mention: Excellent.",
+            techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
+          },
+          {
+            role: "Developpeur Full-stack",
+            company: "DIHA'S",
+            period: "sept. 2025 - nov. 2025",
+            description:
+              "Developpement d'APIs RESTful avec Node.js. Developpement d'un site de type blog sous Laravel, destine a la publication et a la gestion des articles et contenus de l'entreprise. Analyse et conception d'un dashboard de gestion et suivi d'evenements islamiques.",
+            techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
+          },
+          {
+            role: "Developpeur mobile",
+            company: "RAB-TECH",
+            period: "juil. 2024 - aout 2024",
+            description:
+              "Initiation a Flutter et creation d'une application mobile de location de voitures: Locar.",
+            techs: ["Flutter", "Dart", "Git"],
+          },
+        ],
+      }
+    : {
+        sectionLabel: "Journey",
+        heading: "My",
+        headingAccent: "experience",
+        items: [
+          {
+            role: "Full-stack Developer",
+            company: "Academic Project - Contract",
+            period: "Mar 2025 - Present",
+            description:
+              "Development of a meeting room and workspace reservation management system with a payment module - graduation project. Distinction: Excellent.",
+            techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
+          },
+          {
+            role: "Full-stack Developer",
+            company: "DIHA'S",
+            period: "Sep 2025 - Nov 2025",
+            description:
+              "Built RESTful APIs with Node.js. Developed a Laravel blog platform for publishing and content management. Contributed to analysis and design of an events management and tracking dashboard.",
+            techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
+          },
+          {
+            role: "Mobile Developer",
+            company: "RAB-TECH",
+            period: "Jul 2024 - Aug 2024",
+            description:
+              "Flutter onboarding and development of a car rental mobile app named Locar.",
+            techs: ["Flutter", "Dart", "Git"],
+          },
+        ],
+      };
 
   return (
     <section id="experience" className="section-padding">
@@ -42,10 +81,10 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-2">
-            Parcours
+            {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Mes <span className="text-gradient-gold">expériences</span>
+            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
         </motion.div>
 
@@ -54,7 +93,7 @@ const Experience = () => {
           <div className="absolute left-[19px] top-2 bottom-2 w-px bg-border md:left-1/2 md:-translate-x-px" />
 
           <div className="space-y-10">
-            {experiences.map((exp, i) => (
+            {content.items.map((exp, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}

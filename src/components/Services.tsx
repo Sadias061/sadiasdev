@@ -1,43 +1,90 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2, Server, Layers3, Handshake, LifeBuoy } from "lucide-react";
-
-const services = [
-  {
-    title: "Developpement Frontend",
-    description:
-      "Interfaces web modernes, rapides et responsives avec React, Next.js, Angular et Flutter Web.",
-    Icon: Code2,
-  },
-  {
-    title: "Developpement Backend",
-    description:
-      "Conception d'APIs securisees, logique metier solide et integration de bases de donnees.",
-    Icon: Server,
-  },
-  {
-    title: "Applications Full Stack",
-    description:
-      "Developpement de solutions completes, de l'interface utilisateur jusqu'au deploiement.",
-    Icon: Layers3,
-  },
-  {
-    title: "Conseil & Accompagnement",
-    description:
-      "Accompagnement en informatique et coaching trading: strategie, discipline et gestion du risque.",
-    Icon: Handshake,
-  },
-  {
-    title: "Maintenance & Support",
-    description:
-      "Suivi continu, corrections, evolutions et assistance technique pour garder vos applications stables.",
-    Icon: LifeBuoy,
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 const Services = () => {
+  const { locale } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const content = locale === "fr"
+    ? {
+        sectionLabel: "Services",
+        heading: "Services",
+        headingAccent: "proposes",
+        subtitle: "Des solutions completes adaptees a vos besoins.",
+        items: [
+          {
+            title: "Developpement Frontend",
+            description:
+              "Interfaces web modernes, rapides et responsives avec React, Next.js, Angular et Flutter Web.",
+            Icon: Code2,
+          },
+          {
+            title: "Developpement Backend",
+            description:
+              "Conception d'APIs securisees, logique metier solide et integration de bases de donnees.",
+            Icon: Server,
+          },
+          {
+            title: "Applications Full Stack",
+            description:
+              "Developpement de solutions completes, de l'interface utilisateur jusqu'au deploiement.",
+            Icon: Layers3,
+          },
+          {
+            title: "Conseil & Accompagnement",
+            description:
+              "Accompagnement en informatique et coaching trading: strategie, discipline et gestion du risque.",
+            Icon: Handshake,
+          },
+          {
+            title: "Maintenance & Support",
+            description:
+              "Suivi continu, corrections, evolutions et assistance technique pour garder vos applications stables.",
+            Icon: LifeBuoy,
+          },
+        ],
+      }
+    : {
+        sectionLabel: "Services",
+        heading: "Services",
+        headingAccent: "offered",
+        subtitle: "Complete solutions tailored to your needs.",
+        items: [
+          {
+            title: "Frontend Development",
+            description:
+              "Modern, fast and responsive web interfaces built with React, Next.js, Angular and Flutter Web.",
+            Icon: Code2,
+          },
+          {
+            title: "Backend Development",
+            description:
+              "Secure API design, strong business logic and reliable database integration.",
+            Icon: Server,
+          },
+          {
+            title: "Full Stack Applications",
+            description:
+              "End-to-end product development, from user interface to deployment.",
+            Icon: Layers3,
+          },
+          {
+            title: "Consulting & Coaching",
+            description:
+              "Guidance in IT and trading coaching: strategy, discipline and risk management.",
+            Icon: Handshake,
+          },
+          {
+            title: "Maintenance & Support",
+            description:
+              "Ongoing support, fixes and improvements to keep your applications stable.",
+            Icon: LifeBuoy,
+          },
+        ],
+      };
 
   return (
     <section id="services" className="section-padding">
@@ -49,18 +96,18 @@ const Services = () => {
           className="text-center mb-10"
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-2">
-            Services
+            {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Services <span className="text-gradient-gold">proposes</span>
+            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
           <p className="text-muted-foreground">
-            Des solutions completes adaptees a vos besoins.
+            {content.subtitle}
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, index) => (
+          {content.items.map((service, index) => (
             <motion.article
               key={service.title}
               initial={{ opacity: 0, y: 28 }}

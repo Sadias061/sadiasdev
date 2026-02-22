@@ -1,58 +1,118 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2, Server, Database, Braces } from "lucide-react";
-
-const skillCategories = [
-  {
-    title: "Langages de programmation",
-    subtitle: "Fondamentaux de developpement",
-    Icon: Braces,
-    skills: [
-      { name: "HTML & CSS", level: 90 },
-      { name: "Dart", level: 70 },
-      { name: "JavaScript", level: 65 },
-      { name: "SQL", level: 65 },
-      { name: "PHP", level: 60 },
-    ],
-  },
-  {
-    title: "Frontend & UI cross-platform",
-    subtitle: "Interfaces web et applications UI modernes",
-    Icon: Code2,
-    skills: [
-      { name: "React", level: 70 },
-      { name: "Next.js", level: 70 },
-      { name: "Flutter", level: 70 },
-      { name: "Angular", level: 60 },
-    ],
-  },
-  {
-    title: "Backend",
-    subtitle: "APIs robustes et architecture serveur",
-    Icon: Server,
-    skills: [
-      { name: "Node.js", level: 65 },
-      { name: "Symfony", level: 60 },
-      { name: "Nest.js", level: 40 },
-    ],
-  },
-  {
-    title: "Outils & DB",
-    subtitle: "Productivite, base de donnees et DevOps",
-    Icon: Database,
-    skills: [
-      { name: "Git / GitHub / GitLab", level: 85 },
-      { name: "MySQL", level: 80 },
-      { name: "REST APIs", level: 80 },
-      { name: "Postman", level: 75 },
-      { name: "PostgreSQL", level: 65 },
-    ],
-  },
-];
+import { useI18n } from "@/lib/i18n";
 
 const Skills = () => {
+  const { locale } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const content = locale === "fr"
+    ? {
+        sectionLabel: "Competences",
+        heading: "Stack",
+        headingAccent: "technique",
+        categories: [
+          {
+            title: "Langages de programmation",
+            subtitle: "Fondamentaux de developpement",
+            Icon: Braces,
+            skills: [
+              { name: "HTML & CSS", level: 90 },
+              { name: "Dart", level: 70 },
+              { name: "JavaScript", level: 65 },
+              { name: "SQL", level: 65 },
+              { name: "PHP", level: 60 },
+            ],
+          },
+          {
+            title: "Frontend & UI cross-platform",
+            subtitle: "Interfaces web et applications UI modernes",
+            Icon: Code2,
+            skills: [
+              { name: "React", level: 70 },
+              { name: "Next.js", level: 70 },
+              { name: "Flutter", level: 70 },
+              { name: "Angular", level: 60 },
+            ],
+          },
+          {
+            title: "Backend",
+            subtitle: "APIs robustes et architecture serveur",
+            Icon: Server,
+            skills: [
+              { name: "Node.js", level: 65 },
+              { name: "Symfony", level: 60 },
+              { name: "Nest.js", level: 40 },
+            ],
+          },
+          {
+            title: "Outils & DB",
+            subtitle: "Productivite, base de donnees et DevOps",
+            Icon: Database,
+            skills: [
+              { name: "Git / GitHub / GitLab", level: 85 },
+              { name: "MySQL", level: 80 },
+              { name: "REST APIs", level: 80 },
+              { name: "Postman", level: 75 },
+              { name: "PostgreSQL", level: 65 },
+            ],
+          },
+        ],
+      }
+    : {
+        sectionLabel: "Skills",
+        heading: "Technical",
+        headingAccent: "stack",
+        categories: [
+          {
+            title: "Programming Languages",
+            subtitle: "Core development fundamentals",
+            Icon: Braces,
+            skills: [
+              { name: "HTML & CSS", level: 90 },
+              { name: "Dart", level: 70 },
+              { name: "JavaScript", level: 65 },
+              { name: "SQL", level: 65 },
+              { name: "PHP", level: 60 },
+            ],
+          },
+          {
+            title: "Frontend & Cross-platform UI",
+            subtitle: "Modern web interfaces and UI apps",
+            Icon: Code2,
+            skills: [
+              { name: "React", level: 70 },
+              { name: "Next.js", level: 70 },
+              { name: "Flutter", level: 70 },
+              { name: "Angular", level: 60 },
+            ],
+          },
+          {
+            title: "Backend",
+            subtitle: "Robust APIs and server architecture",
+            Icon: Server,
+            skills: [
+              { name: "Node.js", level: 65 },
+              { name: "Symfony", level: 60 },
+              { name: "Nest.js", level: 40 },
+            ],
+          },
+          {
+            title: "Tools & DB",
+            subtitle: "Productivity, databases and DevOps",
+            Icon: Database,
+            skills: [
+              { name: "Git / GitHub / GitLab", level: 85 },
+              { name: "MySQL", level: 80 },
+              { name: "REST APIs", level: 80 },
+              { name: "Postman", level: 75 },
+              { name: "PostgreSQL", level: 65 },
+            ],
+          },
+        ],
+      };
 
   return (
     <section id="skills" className="section-padding">
@@ -63,15 +123,15 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-2">
-            Compétences
+            {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Stack <span className="text-gradient-gold">technique</span>
+            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {skillCategories.map(({ title, subtitle, Icon, skills }, catIndex) => (
+          {content.categories.map(({ title, subtitle, Icon, skills }, catIndex) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 30 }}

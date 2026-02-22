@@ -1,58 +1,88 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, Calendar, GraduationCap, School } from "lucide-react";
-
-const educationItems = [
-  {
-    type: "degree",
-    level: "Diplome",
-    title: "Systemes Informatiques et Logiciel",
-    institution: "Formation superieure",
-    period: "2022 - 2025",
-    description:
-      "Parcours axé sur le developpement web/mobile, l'ingenierie logicielle, les APIs et les bases de donnees.",
-    highlights: [
-      "Genie logiciel",
-      "Bases de donnees",
-      "Developpement web",
-      "Developpement mobile",
-    ],
-  },
-  {
-    type: "project",
-    level: "Soutenance",
-    title: "Systeme de reservation d'espaces de travail",
-    institution: "Projet academique",
-    period: "2025",
-    description:
-      "Conception et developpement d'une application de gestion des reservations avec module de paiement. Mention: Excellent.",
-    highlights: [
-      "Laravel",
-      "MySQL",
-      "Architecture applicative",
-      "Gestion de projet",
-    ],
-  },
-];
-
-const upcomingCertifications = [
-  {
-    title: "Developpement Web Avance",
-    focus: "Architecture frontend et performance",
-  },
-  {
-    title: "Backend API & Architecture",
-    focus: "Conception d'APIs et bonnes pratiques",
-  },
-  {
-    title: "Flutter Mobile",
-    focus: "Applications mobiles cross-platform",
-  },
-];
+import { Calendar, GraduationCap, School } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 const Education = () => {
+  const { locale } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const content = locale === "fr"
+    ? {
+        sectionLabel: "Formation",
+        heading: "Mon",
+        headingAccent: "parcours academique",
+        items: [
+          {
+            type: "degree",
+            level: "Diplome",
+            title: "Systemes Informatiques et Logiciel",
+            institution: "Formation superieure",
+            period: "2022 - 2025",
+            description:
+              "Parcours axe sur le developpement web/mobile, l'ingenierie logicielle, les APIs et les bases de donnees.",
+            highlights: [
+              "Genie logiciel",
+              "Bases de donnees",
+              "Developpement web",
+              "Developpement mobile",
+            ],
+          },
+          {
+            type: "project",
+            level: "Soutenance",
+            title: "Systeme de reservation d'espaces de travail",
+            institution: "Projet academique",
+            period: "2025",
+            description:
+              "Conception et developpement d'une application de gestion des reservations avec module de paiement. Mention: Excellent.",
+            highlights: [
+              "Laravel",
+              "MySQL",
+              "Architecture applicative",
+              "Gestion de projet",
+            ],
+          },
+        ],
+      }
+    : {
+        sectionLabel: "Education",
+        heading: "My",
+        headingAccent: "academic journey",
+        items: [
+          {
+            type: "degree",
+            level: "Degree",
+            title: "Information Systems and Software",
+            institution: "Higher education",
+            period: "2022 - 2025",
+            description:
+              "Program focused on web/mobile development, software engineering, APIs and databases.",
+            highlights: [
+              "Software engineering",
+              "Databases",
+              "Web development",
+              "Mobile development",
+            ],
+          },
+          {
+            type: "project",
+            level: "Thesis Project",
+            title: "Workspace Reservation System",
+            institution: "Academic project",
+            period: "2025",
+            description:
+              "Design and development of a reservation management application with payment module. Distinction: Excellent.",
+            highlights: [
+              "Laravel",
+              "MySQL",
+              "Application architecture",
+              "Project management",
+            ],
+          },
+        ],
+      };
 
   return (
     <section id="education" className="section-padding">
@@ -63,15 +93,15 @@ const Education = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-2">
-            Formation
+            {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-10">
-            Mon <span className="text-gradient-gold">parcours academique</span>
+            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
         </motion.div>
 
         <div className="space-y-5">
-          {educationItems.map((item, index) => (
+          {content.items.map((item, index) => (
             <motion.article
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
@@ -79,7 +109,7 @@ const Education = () => {
               transition={{ duration: 0.5, delay: 0.12 * index }}
               className="relative pl-8"
             >
-              {index !== educationItems.length - 1 && (
+              {index !== content.items.length - 1 && (
                 <span
                   aria-hidden="true"
                   className="absolute left-[7px] top-6 bottom-[-22px] w-px bg-border"

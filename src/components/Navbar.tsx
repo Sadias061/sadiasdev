@@ -1,27 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitch from "./LanguageSwitch";
+import { useI18n } from "@/lib/i18n";
 
 const NAVBAR_HEIGHT = 64;
 const MOBILE_SCROLL_DELAY_MS = 180;
 
-const navItems = [
-  { label: "Accueil", href: "#hero" },
-  { label: "À propos", href: "#about" },
-  { label: "Compétences", href: "#skills" },
-  { label: "Formations", href: "#education" },
-  { label: "Expériences", href: "#experience" },
-  { label: "Projets", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
-];
-
 const Navbar = () => {
+  const { locale } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [pendingHref, setPendingHref] = useState<string | null>(null);
-  const [activeHref, setActiveHref] = useState(navItems[0].href);
+  const [activeHref, setActiveHref] = useState("#hero");
+
+  const navItems = useMemo(
+    () => [
+      { label: locale === "fr" ? "Accueil" : "Home", href: "#hero" },
+      { label: locale === "fr" ? "A propos" : "About", href: "#about" },
+      { label: locale === "fr" ? "Competences" : "Skills", href: "#skills" },
+      { label: locale === "fr" ? "Formation" : "Education", href: "#education" },
+      { label: locale === "fr" ? "Experiences" : "Experience", href: "#experience" },
+      { label: locale === "fr" ? "Projets" : "Projects", href: "#projects" },
+      { label: locale === "fr" ? "Services" : "Services", href: "#services" },
+      { label: locale === "fr" ? "Contact" : "Contact", href: "#contact" },
+    ],
+    [locale],
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,7 +50,7 @@ const Navbar = () => {
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [navItems]);
 
   useEffect(() => {
     if (!mobileOpen && pendingHref) {
@@ -102,7 +108,7 @@ const Navbar = () => {
         </button>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden xl:flex items-center gap-8">
           {navItems.map((item) => (
             <li key={item.href}>
               <button
@@ -130,12 +136,13 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LanguageSwitch />
           <ThemeToggle />
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-foreground"
+            className="xl:hidden text-foreground"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -150,7 +157,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="md:hidden bg-glass-strong overflow-hidden"
+            className="xl:hidden bg-glass-strong overflow-hidden"
           >
             <ul className="flex flex-col items-center gap-4 py-6">
               {navItems.map((item) => (

@@ -1,7 +1,9 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useI18n } from "@/lib/i18n";
 
 const ThemeToggle = () => {
+  const { locale } = useI18n();
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("theme") === "dark" ||
@@ -24,8 +26,8 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
-      aria-label="Basculer le thème"
-      className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+      aria-label={locale === "fr" ? "Basculer le theme" : "Toggle theme"}
+      className="w-7 h-7 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
     >
       {isDark ? <Sun size={16} /> : <Moon size={16} />}
     </button>
