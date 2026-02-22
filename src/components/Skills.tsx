@@ -23,6 +23,13 @@ const skillCategories = [
     ],
   },
   {
+    title: "Mobile",
+    skills: [
+      { name: "Flutter", level: 80 },
+      { name: "Dart", level: 80 },
+    ],
+  },
+  {
     title: "Outils & DB",
     skills: [
       { name: "MySQL", level: 85 },
@@ -54,7 +61,7 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((cat, catIndex) => (
             <motion.div
               key={cat.title}

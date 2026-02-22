@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -14,7 +14,7 @@ const Hero = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <p className="text-sm font-mono text-primary tracking-widest uppercase mb-4">
-            Développeur Full-Stack
+            Analyste Programmeur · Full-Stack & Mobile
           </p>
         </motion.div>
 
@@ -32,26 +32,59 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed"
         >
-          Jeune diplômé en Systèmes Informatiques et Logiciel, passionné par la
-          création d'expériences web modernes et performantes.
+          Analyste programmeur avec 1 an d'expérience, passionné par la
+          création d'applications web & mobile modernes et performantes.
+          Disponible pour des projets freelances et contrats de travail.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+        >
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300"
+          >
+            <Mail size={16} />
+            Contactez-moi
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-all duration-300"
+          >
+            Voir mes projets
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="flex items-center justify-center gap-5 mb-16"
         >
           {[
             { Icon: Github, href: "#", label: "GitHub" },
             { Icon: Linkedin, href: "#", label: "LinkedIn" },
-            { Icon: Mail, href: "#contact", label: "Email" },
+            { Icon: MessageCircle, href: "https://wa.me/2290190705060", label: "WhatsApp" },
+            { Icon: Mail, href: "mailto:agnawaleayantayoesdras@gmail.com", label: "Email" },
           ].map(({ Icon, href, label }) => (
             <a
               key={label}
               href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
               aria-label={label}
               className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:glow-gold"
             >
