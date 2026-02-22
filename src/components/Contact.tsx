@@ -91,21 +91,25 @@ const Contact = () => {
             className="md:col-span-2 space-y-4 md:space-y-5 md:h-full"
           >
             {[
-              { Icon: Mail, label: "Email", value: CONTACT_EMAIL },
-              { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60" },
-              { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60" },
-              { Icon: MapPin, label: "Localisation", value: "Calavi, Womey – Bénin" },
-            ].map(({ Icon, label, value }) => (
+              { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
+              { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+              { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+              { Icon: MapPin, label: "Localisation", value: "Calavi, Womey – Bénin", wrapAnywhere: false },
+            ].map(({ Icon, label, value, wrapAnywhere }) => (
               <div
                 key={label}
-                className="flex items-start gap-3 sm:gap-4 p-4 rounded-lg bg-card border border-border"
+                className="w-full flex items-start gap-3 sm:gap-4 p-4 rounded-lg bg-card border border-border"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <Icon size={16} className="text-primary" />
                 </div>
-                <div className="min-w-0">
+                <div className="flex-1 min-w-0">
                   <p className="text-xs text-muted-foreground">{label}</p>
-                  <p className="text-sm text-foreground font-medium leading-snug break-words">
+                  <p
+                    className={`text-sm text-foreground font-medium leading-snug max-w-full ${
+                      wrapAnywhere ? "[overflow-wrap:anywhere]" : "break-words"
+                    }`}
+                  >
                     {value}
                   </p>
                 </div>
