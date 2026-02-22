@@ -35,7 +35,7 @@ const FloatingIcons = () => {
       {icons.map(({ Icon, x, y, delay, duration }, i) => (
         <motion.div
           key={i}
-          className="absolute text-primary/[0.15] dark:text-primary/[0.06]"
+          className="absolute text-primary/[0.15] dark:text-primary/[0.10]"
           style={{ left: x, top: y }}
           animate={{
             y: [0, -15, 5, -10, 0],
