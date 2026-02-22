@@ -36,6 +36,14 @@ const projects = [
     github: "#",
     live: "#",
   },
+   {
+    title: "E-commerce SylaceShop",
+    description:
+      "Site de commerce électronique avec une interface utilisateur moderne et une expérience d'achat fluide. ",
+    techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
+    github: "https://github.com/Sadias061/sylace-commerce.git",
+    live: "#",
+  },
 ];
 
 const Projects = () => {
