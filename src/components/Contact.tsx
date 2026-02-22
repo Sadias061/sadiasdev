@@ -108,7 +108,7 @@ const Contact = () => {
             />
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full"
             >
               <Send size={16} />
               Envoyer
