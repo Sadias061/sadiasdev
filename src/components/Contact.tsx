@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -47,9 +47,10 @@ const Contact = () => {
             className="md:col-span-2 space-y-5"
           >
             {[
-              { Icon: Mail, label: "Email", value: "esdras@email.com" },
-              { Icon: Phone, label: "Téléphone", value: "+229 XX XX XX XX" },
-              { Icon: MapPin, label: "Localisation", value: "Bénin" },
+              { Icon: Mail, label: "Email", value: "agnawaleayantayoesdras@gmail.com" },
+              { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60" },
+              { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60" },
+              { Icon: MapPin, label: "Localisation", value: "Calavi, Womey – Bénin" },
             ].map(({ Icon, label, value }) => (
               <div
                 key={label}

@@ -6,18 +6,61 @@
 
 @layer base {
   :root {
-    /* 60% - Deep dark background */
+    /* Light mode */
+    --background: 40 20% 97%;
+    --foreground: 225 25% 12%;
+
+    --card: 40 15% 93%;
+    --card-foreground: 225 25% 12%;
+
+    --popover: 40 15% 93%;
+    --popover-foreground: 225 25% 12%;
+
+    --primary: 42 92% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 10% 88%;
+    --secondary-foreground: 225 20% 25%;
+
+    --muted: 40 10% 90%;
+    --muted-foreground: 225 10% 40%;
+
+    --accent: 42 80% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 10% 85%;
+    --input: 40 10% 87%;
+    --ring: 42 92% 46%;
+
+    --radius: 0.75rem;
+
+    --gold-glow: 42 92% 46%;
+    --surface-glass: 40 15% 93%;
+
+    --sidebar-background: 40 20% 97%;
+    --sidebar-foreground: 225 25% 12%;
+    --sidebar-primary: 42 92% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 10% 88%;
+    --sidebar-accent-foreground: 225 25% 12%;
+    --sidebar-border: 40 10% 85%;
+    --sidebar-ring: 42 92% 46%;
+  }
+
+  .dark {
+    /* Dark mode */
     --background: 225 25% 6%;
     --foreground: 40 20% 92%;
 
-    /* Cards / surfaces - 30% slightly lighter */
     --card: 225 20% 10%;
     --card-foreground: 40 20% 92%;
 
     --popover: 225 20% 10%;
     --popover-foreground: 40 20% 92%;
 
-    /* 10% Gold accent */
     --primary: 42 92% 56%;
     --primary-foreground: 225 25% 6%;
 
@@ -37,9 +80,6 @@
     --input: 225 15% 18%;
     --ring: 42 92% 56%;
 
-    --radius: 0.75rem;
-
-    /* Custom tokens */
     --gold-glow: 42 92% 56%;
     --surface-glass: 225 20% 10%;
 
@@ -91,31 +131,31 @@
   }
 
   .bg-glass {
-    background: hsl(225 20% 10% / 0.6);
+    background: hsl(var(--surface-glass) / 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(225 15% 16% / 0.5);
+    border: 1px solid hsl(var(--border) / 0.5);
   }
 
   .bg-glass-strong {
-    background: hsl(225 20% 10% / 0.85);
+    background: hsl(var(--surface-glass) / 0.85);
     backdrop-filter: blur(30px);
-    border: 1px solid hsl(225 15% 20% / 0.5);
+    border: 1px solid hsl(var(--border) / 0.5);
   }
 
   .glow-gold {
     box-shadow:
-      0 0 20px hsl(42 92% 56% / 0.15),
-      0 0 60px hsl(42 92% 56% / 0.05);
+      0 0 20px hsl(var(--gold-glow) / 0.15),
+      0 0 60px hsl(var(--gold-glow) / 0.05);
   }
 
   .glow-gold-strong {
     box-shadow:
-      0 0 30px hsl(42 92% 56% / 0.25),
-      0 0 80px hsl(42 92% 56% / 0.1);
+      0 0 30px hsl(var(--gold-glow) / 0.25),
+      0 0 80px hsl(var(--gold-glow) / 0.1);
   }
 
   .border-gold-subtle {
-    border-color: hsl(42 92% 56% / 0.2);
+    border-color: hsl(var(--gold-glow) / 0.2);
   }
 
   .section-padding {
@@ -129,20 +169,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(225 25% 6%);
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(225 15% 20%);
+  background: hsl(var(--muted));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(42 92% 56% / 0.5);
+  background: hsl(var(--gold-glow) / 0.5);
 }
 
 /* Selection styling */
 ::selection {
-  background: hsl(42 92% 56% / 0.3);
-  color: hsl(40 20% 92%);
+  background: hsl(var(--gold-glow) / 0.3);
+  color: hsl(var(--foreground));
 }

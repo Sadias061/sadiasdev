@@ -32,14 +32,15 @@ const About = () => {
           >
             <p className="text-muted-foreground leading-relaxed">
               Je suis <span className="text-foreground font-medium">Esdras AGNAWALE</span>, 
-              un développeur Full-Stack passionné par la technologie et l'innovation. 
+              un analyste programmeur Full-Stack & Mobile avec 1 an d'expérience, 
+              passionné par la technologie et l'innovation. 
               Diplômé en Systèmes Informatiques et Logiciel, je maîtrise un large 
-              éventail de technologies modernes.
+              éventail de technologies web et mobiles.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Mon objectif est de concevoir des solutions web robustes, élégantes 
-              et performantes qui répondent aux besoins réels des utilisateurs. 
-              Chaque ligne de code est une opportunité de créer quelque chose d'exceptionnel.
+              Basé à Calavi (Womey), je suis disponible pour des projets freelances 
+              et des contrats de travail. Mon objectif est de concevoir des solutions 
+              robustes, élégantes et performantes qui répondent aux besoins réels des utilisateurs.
             </p>
           </motion.div>
 
@@ -58,7 +59,7 @@ const About = () => {
               {
                 Icon: MapPin,
                 title: "Localisation",
-                desc: "Disponible pour des opportunités",
+                desc: "Calavi, Womey – Bénin",
               },
               {
                 Icon: Sparkles,
