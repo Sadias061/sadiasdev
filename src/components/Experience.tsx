@@ -4,28 +4,28 @@ import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
-    role: "Développeur Full-Stack",
-    company: "Projet Freelance",
-    period: "2024 — Présent",
+    role: "Développeur mobile",
+    company: "RAB-TECH",
+    period: "juil. 2024 - août 2024",
     description:
-      "Conception et développement d'applications web modernes avec React, Next.js et Laravel. Gestion de projets de bout en bout.",
-    techs: ["React", "Next.js", "Laravel", "MySQL"],
+      "Initialisation à flutter et création d’une application mobile de location de voitures, Locar",
+    techs: ["Flutter", "Dart", "Git"],
   },
   {
-    role: "Développeur Backend",
-    company: "Stage / Projet académique",
-    period: "2023 — 2024",
+    role: "Développeur Full-stack",
+    company: "DIHA'S",
+    period: "sept. 2025 - nov. 2025",
     description:
-      "Développement d'APIs RESTful avec Nest.js et Symfony. Mise en place de bases de données relationnelles et optimisation des performances.",
-    techs: ["Nest.js", "Symfony", "PHP", "Postman"],
+      "Développement d'APIs RESTful avec Node.js. Développement d’un site de type blog sous Laravel, destiné à la publication et à la gestion des articles et contenus de l’entreprise. Analys et conception d'un dashboard de gestion et suivi d'évènements islamique",
+    techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
   },
   {
-    role: "Développeur Web Junior",
-    company: "Projets personnels",
-    period: "2022 — 2023",
+    role: "Développeur Full-stack",
+    company: "Projet académique - Contrat",
+    period: "mars 2025 - Présent",
     description:
-      "Apprentissage et application des frameworks modernes. Développement de sites web responsives et d'applications SPA.",
-    techs: ["Angular", "PHP", "Git", "HTML/CSS"],
+      "Développement d’un système de gestion des réservations de salles de réunion et d’espaces de travail, avec intégration d’un module de paiement — Projet de soutenance. Mention : Excellent",
+    techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
   },
 ];
 
@@ -80,10 +80,7 @@ const Experience = () => {
                 >
                   <div className="p-5 rounded-xl bg-card border border-border hover:border-gold-subtle transition-all duration-300 group">
                     <div className="flex items-center gap-2 mb-1">
-                      <Briefcase
-                        size={14}
-                        className="text-primary shrink-0"
-                      />
+                      <Briefcase size={14} className="text-primary shrink-0" />
                       <span className="text-xs font-mono text-primary">
                         {exp.period}
                       </span>

@@ -10,8 +10,10 @@ const navItems = [
   { label: "Accueil", href: "#hero" },
   { label: "À propos", href: "#about" },
   { label: "Compétences", href: "#skills" },
+  { label: "Formations", href: "#education" },
   { label: "Expériences", href: "#experience" },
   { label: "Projets", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -50,7 +52,9 @@ const Navbar = () => {
         const section = document.querySelector<HTMLElement>(pendingHref);
         if (section) {
           const top =
-            section.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+            section.getBoundingClientRect().top +
+            window.scrollY -
+            NAVBAR_HEIGHT;
           window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
           window.history.replaceState(null, "", pendingHref);
         }
@@ -153,7 +157,9 @@ const Navbar = () => {
                 <li key={item.href}>
                   <button
                     onClick={() => handleClick(item.href)}
-                    aria-current={activeHref === item.href ? "location" : undefined}
+                    aria-current={
+                      activeHref === item.href ? "location" : undefined
+                    }
                     className={`relative inline-flex items-center pb-1 text-sm transition-colors ${
                       activeHref === item.href
                         ? "text-primary"

@@ -7,7 +7,7 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center section-padding"
     >
-      <div className="max-w-4xl mx-auto text-center z-10">
+      <div className="max-w-4xl mx-auto text-center z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
+          className="text-3xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6"
         >
           Esdras{" "}
           <span className="text-gradient-gold">AGNAWALE</span>
@@ -32,7 +32,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed"
+          className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed px-1"
         >
           Analyste programmeur avec 1 an d'expérience, passionné par la
           création d'applications web & mobile modernes et performantes.
@@ -43,7 +43,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-10 w-full max-w-sm sm:max-w-none mx-auto"
         >
           <a
             href="#contact"
@@ -51,7 +51,7 @@ const Hero = () => {
               e.preventDefault();
               document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full sm:w-auto"
           >
             <Mail size={16} />
             Contactez-moi
@@ -62,7 +62,7 @@ const Hero = () => {
               e.preventDefault();
               document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto"
           >
             Voir mes projets
           </a>
@@ -72,11 +72,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex items-center justify-center gap-5 mb-16"
+          className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mb-16"
         >
           {[
-            { Icon: Github, href: "#", label: "GitHub" },
-            { Icon: Linkedin, href: "#", label: "LinkedIn" },
+            { Icon: Github, href: "https://github.com/Sadias061", label: "GitHub" },
+            { Icon: Linkedin, href: "https://www.linkedin.com/in/esdras-agnawale-sadias", label: "LinkedIn" },
             { Icon: MessageCircle, href: "https://wa.me/2290190705060", label: "WhatsApp" },
             { Icon: Mail, href: "mailto:agnawaleayantayoesdras@gmail.com", label: "Email" },
           ].map(({ Icon, href, label }) => (

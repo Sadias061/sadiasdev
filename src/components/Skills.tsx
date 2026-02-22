@@ -1,42 +1,51 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Code2, Server, Database, Braces } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Frontend",
+    title: "Langages de programmation",
+    subtitle: "Fondamentaux de developpement",
+    Icon: Braces,
     skills: [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "Angular", level: 75 },
-      { name: "TypeScript", level: 85 },
-      { name: "Tailwind CSS", level: 90 },
+      { name: "HTML & CSS", level: 90 },
+      { name: "Dart", level: 70 },
+      { name: "JavaScript", level: 65 },
+      { name: "SQL", level: 65 },
+      { name: "PHP", level: 60 },
+    ],
+  },
+  {
+    title: "Frontend & UI cross-platform",
+    subtitle: "Interfaces web et applications UI modernes",
+    Icon: Code2,
+    skills: [
+      { name: "React", level: 70 },
+      { name: "Next.js", level: 70 },
+      { name: "Flutter", level: 70 },
+      { name: "Angular", level: 60 },
     ],
   },
   {
     title: "Backend",
+    subtitle: "APIs robustes et architecture serveur",
+    Icon: Server,
     skills: [
-      { name: "Nest.js", level: 80 },
-      { name: "Laravel", level: 85 },
-      { name: "Symfony", level: 75 },
-      { name: "PHP", level: 85 },
-      { name: "Node.js", level: 80 },
-    ],
-  },
-  {
-    title: "Mobile",
-    skills: [
-      { name: "Flutter", level: 80 },
-      { name: "Dart", level: 80 },
+      { name: "Node.js", level: 65 },
+      { name: "Symfony", level: 60 },
+      { name: "Nest.js", level: 40 },
     ],
   },
   {
     title: "Outils & DB",
+    subtitle: "Productivite, base de donnees et DevOps",
+    Icon: Database,
     skills: [
-      { name: "MySQL", level: 85 },
-      { name: "Git", level: 90 },
-      { name: "Postman", level: 85 },
-      { name: "Docker", level: 70 },
-      { name: "REST APIs", level: 90 },
+      { name: "Git / GitHub / GitLab", level: 85 },
+      { name: "MySQL", level: 80 },
+      { name: "REST APIs", level: 80 },
+      { name: "Postman", level: 75 },
+      { name: "PostgreSQL", level: 65 },
     ],
   },
 ];
@@ -61,26 +70,38 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((cat, catIndex) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {skillCategories.map(({ title, subtitle, Icon, skills }, catIndex) => (
             <motion.div
-              key={cat.title}
+              key={title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 * catIndex }}
-              className="p-6 rounded-xl bg-card border border-border hover:border-gold-subtle transition-all duration-300 group"
+              className="rounded-xl bg-card border border-border p-5 sm:p-6 hover:border-gold-subtle transition-all duration-300"
             >
-              <h3 className="text-sm font-mono text-primary mb-6 uppercase tracking-wider">
-                {cat.title}
-              </h3>
-              <div className="space-y-4">
-                {cat.skills.map((skill, i) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between text-sm mb-1.5">
-                      <span className="text-foreground font-medium">
+              <div className="flex items-start gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                  <Icon size={18} className="text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-mono text-primary uppercase tracking-wider">
+                    {title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1">{subtitle}</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {skills.map((skill, skillIndex) => (
+                  <div
+                    key={skill.name}
+                    className="rounded-lg border border-border/80 bg-background/30 px-3 py-2.5"
+                  >
+                    <div className="flex items-center justify-between gap-3 mb-2">
+                      <span className="text-sm text-foreground font-medium">
                         {skill.name}
                       </span>
-                      <span className="text-muted-foreground font-mono text-xs">
+                      <span className="text-xs font-mono px-2 py-1 rounded bg-primary/10 text-primary shrink-0">
                         {skill.level}%
                       </span>
                     </div>
@@ -89,8 +110,8 @@ const Skills = () => {
                         initial={{ width: 0 }}
                         animate={inView ? { width: `${skill.level}%` } : {}}
                         transition={{
-                          duration: 0.8,
-                          delay: 0.3 + i * 0.1 + catIndex * 0.15,
+                          duration: 0.7,
+                          delay: 0.2 + catIndex * 0.12 + skillIndex * 0.06,
                           ease: "easeOut",
                         }}
                         className="h-full rounded-full bg-gradient-to-r from-primary to-primary/60"

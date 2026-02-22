@@ -4,10 +4,11 @@ import { ExternalLink, Github, Folder } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title:
+      "Plateforme de réservation de salles de réunion ou d'espaces de travail ",
     description:
-      "Plateforme e-commerce complète avec panier, paiement et gestion des commandes. Interface moderne et responsive.",
-    techs: ["Next.js", "Stripe", "Tailwind", "MySQL"],
+      "Système de gestion des réservations de salles de réunion et d’espaces de travail, avec intégration d’un module de paiement.",
+    techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
     github: "#",
     live: "#",
   },
@@ -15,31 +16,23 @@ const projects = [
     title: "Dashboard Analytics",
     description:
       "Tableau de bord interactif pour la visualisation de données en temps réel avec graphiques dynamiques.",
-    techs: ["React", "TypeScript", "Recharts", "REST API"],
+    techs: ["Node.js", "Next.js", "Postman", "PostgreSQL", "REST API"],
     github: "#",
     live: "#",
   },
   {
-    title: "API REST Manager",
+    title: "Sadias Stock",
     description:
-      "Application backend robuste avec authentification JWT, gestion des rôles et documentation Swagger.",
-    techs: ["Nest.js", "JWT", "Swagger", "PostgreSQL"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Portfolio Créatif",
-    description:
-      "Site portfolio moderne avec animations fluides, design responsive et optimisation SEO.",
-    techs: ["React", "Framer Motion", "Tailwind"],
+      "Application de gestion de stock moderne simple et efficace, permettant une gestion facile des produits et des stocks. ",
+    techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
     github: "#",
     live: "#",
   },
   {
     title: "Système de Gestion",
     description:
-      "Application de gestion interne avec CRUD complet, filtrage avancé et exportation de données.",
-    techs: ["Laravel", "Vue.js", "MySQL", "Docker"],
+      "Tableau de bord interactif pour une application de gestion de suivi d'une formation au sein d'une institution ou d'une entreprise, avec des visualisations de données en temps réel et des fonctionnalités de collaboration. ",
+    techs: ["Angular", "Figma", "Tailwind CSS"],
     github: "#",
     live: "#",
   },
