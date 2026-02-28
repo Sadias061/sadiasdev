@@ -6,16 +6,16 @@ const Hero = () => {
   const { locale } = useI18n();
   const content = locale === "fr"
     ? {
-        role: "Analyste Programmeur · Full-Stack & Mobile",
+        role: "Analyste Programmeur · Dev Full-Stack",
         description:
-          "Analyste programmeur avec 1 an d'experience, passionne par la creation d'applications web & mobile modernes et performantes. Disponible pour des projets freelances et contrats de travail.",
+          "Developpeur Full-Stack et mobile avec 1 an d'experience, base a Calavi (Benin). 5 projets presentes dans ce portfolio, axes sur la performance, l'experience utilisateur et des besoins metier concrets.",
         contactCta: "Contactez-moi",
         projectsCta: "Voir mes projets",
       }
     : {
         role: "Software Analyst - Full-Stack & Mobile",
         description:
-          "Software analyst with 1 year of experience, passionate about building modern and performant web and mobile applications. Available for freelance projects and work contracts.",
+          "Full-Stack and mobile developer with 1 year of experience, based in Calavi (Benin). 5 projects are showcased in this portfolio, focused on performance, user experience, and real business needs.",
         contactCta: "Contact me",
         projectsCta: "View my projects",
       };
@@ -44,6 +44,9 @@ const Hero = () => {
         >
           Esdras{" "}
           <span className="text-gradient-gold">AGNAWALE</span>
+          <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-muted-foreground font-normal">
+            (Sadias)
+          </span>
         </motion.h1>
 
         <motion.p

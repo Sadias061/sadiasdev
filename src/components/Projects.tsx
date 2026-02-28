@@ -7,8 +7,8 @@ type ProjectItem = {
   title: string;
   description: string;
   techs: string[];
-  github: string;
-  live: string;
+  github?: string;
+  live?: string;
   image: string;
 };
 
@@ -48,8 +48,6 @@ const Projects = () => {
               description:
                 "Systeme de gestion des reservations de salles de reunion et d'espaces de travail, avec integration d'un module de paiement.",
               techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
-              github: "#",
-              live: "#",
               image: "/projects/reservation.png",
             },
             {
@@ -63,8 +61,6 @@ const Projects = () => {
                 "PostgreSQL",
                 "REST API",
               ],
-              github: "#",
-              live: "#",
               image: "/projects/islam-pilier.png",
             },
             {
@@ -72,8 +68,6 @@ const Projects = () => {
               description:
                 "Application de gestion de stock moderne, simple et efficace, permettant une gestion facile des produits et des stocks.",
               techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
-              github: "#",
-              live: "#",
               image: "/projects/sadias-stock.png",
             },
             {
@@ -81,8 +75,6 @@ const Projects = () => {
               description:
                 "Dashboard de suivi de formation pour institution ou entreprise, avec visualisations en temps reel et fonctionnalites de collaboration.",
               techs: ["Angular", "Figma", "Tailwind CSS"],
-              github: "#",
-              live: "#",
               image: "/projects/bynuss.png",
             },
               {
@@ -91,7 +83,6 @@ const Projects = () => {
                 "Site e-commerce avec interface utilisateur moderne et experience d'achat fluide.",
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
               github: "https://github.com/Sadias061/sylace-commerce.git",
-              live: "#",
               image: "/projects/sylaceshop-ecommerce.svg",
             },
           ],
@@ -110,8 +101,6 @@ const Projects = () => {
               description:
                 "Reservation management system for meeting rooms and workspaces, with integrated payment module.",
               techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
-              github: "#",
-              live: "#",
               image: "/projects/reservation.png",
             },
             {
@@ -125,8 +114,6 @@ const Projects = () => {
                 "PostgreSQL",
                 "REST API",
               ],
-              github: "#",
-              live: "#",
               image: "/projects/islam-pilier.png",
             },
             {
@@ -134,8 +121,6 @@ const Projects = () => {
               description:
                 "Modern stock management application focused on simple and efficient product and inventory handling.",
               techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
-              github: "#",
-              live: "#",
               image: "/projects/sadias-stock.png",
             },
             {
@@ -143,8 +128,6 @@ const Projects = () => {
               description:
                 "Training tracking dashboard for institutions or companies, with real-time data views and collaboration features.",
               techs: ["Angular", "Figma", "Tailwind CSS"],
-              github: "#",
-              live: "#",
               image: "/projects/bynuss.png",
             },
             {
@@ -153,7 +136,6 @@ const Projects = () => {
                 "E-commerce website with a modern user interface and a smooth shopping experience.",
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
               github: "https://github.com/Sadias061/sylace-commerce.git",
-              live: "#",
               image: "/projects/sylaceshop-ecommerce.svg",
             },
           ],
@@ -196,7 +178,7 @@ const Projects = () => {
                     >
                       <ImageIcon size={16} />
                     </button>
-                    {project.github !== "#" ? (
+                    {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
@@ -206,15 +188,8 @@ const Projects = () => {
                       >
                         <Github size={16} />
                       </a>
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="text-muted-foreground/40"
-                      >
-                        <Github size={16} />
-                      </span>
                     )}
-                    {project.live !== "#" ? (
+                    {project.live && (
                       <a
                         href={project.live}
                         target="_blank"
@@ -224,13 +199,6 @@ const Projects = () => {
                       >
                         <ExternalLink size={16} />
                       </a>
-                    ) : (
-                      <span
-                        aria-hidden="true"
-                        className="text-muted-foreground/40"
-                      >
-                        <ExternalLink size={16} />
-                      </span>
                     )}
                   </div>
                 </div>
