@@ -45,7 +45,6 @@ const Hero = () => {
           Esdras{" "}
           <span className="text-gradient-gold">AGNAWALE</span>
           <span className="block text-2xl sm:text-3xl md:text-4xl mt-2 text-muted-foreground font-normal">
-            (Sadias)
           </span>
         </motion.h1>
 
