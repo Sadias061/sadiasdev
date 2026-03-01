@@ -15,14 +15,14 @@ const Hero = () => {
       ? {
           role: "Analyste Programmeur · Dev Full-Stack",
           description:
-            "Je cree des applications web et mobiles simples a utiliser. J'ai 1 an d'experience et je suis base a Calavi (Benin). Dans ce portfolio, vous trouverez 5 projets reels, pensés pour etre rapides, clairs et utiles a des besoins concrets.",
+            "Je cree des applications web et mobiles simples a utiliser. J'ai 1 an d'experience et je suis base a Calavi. Mon objectif est de proposer des solutions rapides, claires et utiles pour des besoins concrets.",
           contactCta: "Contactez-moi",
           servicesCta: "Voir mes services",
         }
       : {
           role: "Software Analyst - Full-Stack & Mobile",
           description:
-            "I build web and mobile apps that are simple to use. I have 1 year of experience and I am based in Calavi (Benin). This portfolio shows 5 real projects designed to be fast, clear, and useful for everyday business needs.",
+            "I build web and mobile apps that are simple to use. I have 1 year of experience and I am based in Calavi. My goal is to deliver solutions that are fast, clear, and useful for real business needs.",
           contactCta: "Contact me",
           servicesCta: "View my services",
         };

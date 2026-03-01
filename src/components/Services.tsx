@@ -19,7 +19,7 @@ const Services = () => {
             {
               title: "Developpement Frontend",
               description:
-                "Creation de sites web vitrines modernes, rapides et responsives avec React, Next.js, Angular et Flutter Web.",
+                "Creation de sites web vitrines modernes, rapides et responsives.",
               Icon: Code2,
             },
             {
@@ -57,7 +57,7 @@ const Services = () => {
             {
               title: "Frontend Development",
               description:
-                "Creation of modern, fast and responsive showcase websites built with React, Next.js, Angular and Flutter Web.",
+                "Creation of modern, fast and responsive showcase websites.",
               Icon: Code2,
             },
             {
