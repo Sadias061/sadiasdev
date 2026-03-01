@@ -38,7 +38,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="text-sm font-mono text-primary tracking-widest uppercase mb-4">
+          <p className="text-xs font-mono text-primary tracking-widest uppercase mb-4">
             {content.role}
           </p>
         </motion.div>

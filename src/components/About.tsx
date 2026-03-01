@@ -32,7 +32,7 @@ const About = () => {
             {
               Icon: Sparkles,
               title: "Passion",
-              desc: "Creer des experiences web modernes et performantes",
+              desc: "Créer des sites et applications simples, rapides et utiles au quotidien",
             },
           ],
         }
@@ -57,7 +57,7 @@ const About = () => {
             {
               Icon: Sparkles,
               title: "Passion",
-              desc: "Building modern and performant web experiences",
+              desc: "Building simple, fast, and useful websites and apps for everyday needs",
             },
           ],
         };

@@ -11,7 +11,7 @@ const Footer = () => {
   const { locale } = useI18n();
   const rightsText =
     locale === "fr" ? "Tous droits reserves." : "All rights reserved.";
-  const lastUpdatedIso = "2026-02-22";
+  const lastUpdatedIso = "2026-03-02";
   const lastUpdatedLabel =
     locale === "fr" ? "Derniere modification :" : "Last update:";
   const lastUpdatedDate = new Intl.DateTimeFormat(

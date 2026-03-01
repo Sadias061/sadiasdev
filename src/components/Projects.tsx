@@ -77,13 +77,13 @@ const Projects = () => {
               techs: ["Angular", "Figma", "Tailwind CSS"],
               image: "/projects/bynuss.png",
             },
-              {
-                title: "E-commerce SylaceShop",
+            {
+              title: "E-commerce SylaceShop",
               description:
                 "Site e-commerce avec interface utilisateur moderne et experience d'achat fluide.",
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
               github: "https://github.com/Sadias061/sylace-commerce.git",
-              live: "https://sylaceshop.vercel.app/",
+              live: "https://sylaceshop.netlify.app/",
               image: "/projects/sylaceshop-ecommerce.svg",
             },
           ],
@@ -169,41 +169,41 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: 0.1 * i }}
               className="group p-5 rounded-xl bg-card border border-border hover:border-gold-subtle transition-all duration-300 hover:glow-gold flex flex-col"
             >
-                <div className="flex items-center justify-between mb-4">
-                  <Folder size={28} className="text-primary" />
-                  <div className="flex gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setActivePreview(project)}
-                      aria-label={`${content.previewActionLabel} - ${project.title}`}
+              <div className="flex items-center justify-between mb-4">
+                <Folder size={28} className="text-primary" />
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setActivePreview(project)}
+                    aria-label={`${content.previewActionLabel} - ${project.title}`}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <ImageIcon size={16} />
+                  </button>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <ImageIcon size={16} />
-                    </button>
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github size={16} />
-                      </a>
-                    )}
-                    {project.live && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={content.liveLabel}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <ExternalLink size={16} />
-                      </a>
-                    )}
-                  </div>
+                      <Github size={16} />
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={content.liveLabel}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
                 </div>
+              </div>
 
               <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {project.title}
