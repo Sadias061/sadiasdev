@@ -15,9 +15,9 @@ const About = () => {
           sectionLabel: "A propos",
           heading: "Qui suis-je",
           intro1:
-            "Je suis Esdras AGNAWALE (alias Sadias), analyste programmeur Full-Stack & Mobile avec 1 an d'experience, passionne par la technologie et l'innovation. Diplome en Systemes Informatiques et Logiciel, je maitrise un large eventail de technologies web et mobiles.",
+            "Je suis Esdras AGNAWALE, analyste programmeur Full-Stack & Mobile avec 1 an d'experience, passionne par la technologie et l'innovation. Diplome en Systemes Informatiques et Logiciel, je maitrise un large eventail de technologies web et mobiles.",
           intro2:
-            "Base a Calavi (Womey), je suis disponible pour des projets freelances et des contrats de travail. Mon objectif est de concevoir des solutions robustes, elegantes et performantes qui repondent aux besoins reels des utilisateurs.",
+            "Base a Calavi, je suis disponible pour des projets freelances et des contrats de travail. Mon objectif est de concevoir des solutions robustes, elegantes et performantes qui repondent aux besoins reels des utilisateurs.",
           cards: [
             {
               Icon: GraduationCap,
@@ -40,9 +40,9 @@ const About = () => {
           sectionLabel: "About",
           heading: "Who am I",
           intro1:
-            "I am Esdras AGNAWALE (aka Sadias), a Full-Stack and Mobile software analyst with 1 year of experience, passionate about technology and innovation. Graduated in Information Systems and Software, I work with a broad range of web and mobile technologies.",
+            "I am Esdras AGNAWALE, a Full-Stack and Mobile software analyst with 1 year of experience, passionate about technology and innovation. Graduated in Information Systems and Software, I work with a broad range of web and mobile technologies.",
           intro2:
-            "Based in Calavi (Womey), I am available for freelance projects and work contracts. My goal is to design robust, elegant and performant solutions that solve real user needs.",
+            "Based in Calavi, I am available for freelance projects and work contracts. My goal is to design robust, elegant and performant solutions that solve real user needs.",
           cards: [
             {
               Icon: GraduationCap,
