@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sadiasdev.vercel.app/sitemap.xml
-Host: sadiasdev.vercel.app
+Sitemap: https://sadias.me/sitemap.xml
+Host: sadias.me
