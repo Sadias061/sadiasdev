@@ -1,10 +1,7 @@
-import {
-  Github,
-  Linkedin,
-  LinkedinIcon,
-  Mail,
-  MessageCircle,
-} from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import FacebookIcon from "@/components/icons/FacebookIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import { useI18n } from "@/lib/i18n";
 
 const Footer = () => {
@@ -12,8 +9,6 @@ const Footer = () => {
   const rightsText =
     locale === "fr" ? "Tous droits reserves." : "All rights reserved.";
   const lastUpdatedIso = "2026-03-02";
-  const lastUpdatedLabel =
-    locale === "fr" ? "Derniere modification :" : "Last update:";
   const lastUpdatedDate = new Intl.DateTimeFormat(
     locale === "fr" ? "fr-FR" : "en-US",
     {
@@ -23,13 +18,17 @@ const Footer = () => {
       timeZone: "UTC",
     },
   ).format(new Date(`${lastUpdatedIso}T00:00:00Z`));
+  const lastUpdatedText =
+    locale === "fr"
+      ? `Mis à jour le ${lastUpdatedDate}`
+      : `Last updated ${lastUpdatedDate}`;
 
   return (
     <footer className="border-t border-border/70 py-8 sm:py-10 px-4">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm p-5 sm:p-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 text-center sm:text-left">
-            <div className="min-w-0">
+            <div className="min-w-0 space-y-1">
               <p className="text-sm text-muted-foreground break-words">
                 © {new Date().getFullYear()}{" "}
                 <span className="text-gradient-gold font-semibold">
@@ -37,17 +36,20 @@ const Footer = () => {
                 </span>
                 . {rightsText}
               </p>
+              <p className="text-xs text-muted-foreground/70">
+                <time dateTime={lastUpdatedIso}>{lastUpdatedText}</time>
+              </p>
             </div>
 
             <div className="flex items-center justify-center lg:justify-end gap-2 sm:gap-3">
               {[
                 {
-                  Icon: Github,
+                  Icon: GithubIcon,
                   href: "https://github.com/Sadias061",
                   label: "GitHub",
                 },
                 {
-                  Icon: Linkedin,
+                  Icon: LinkedinIcon,
                   href: "https://www.linkedin.com/in/esdras-agnawale-sadias",
                   label: "LinkedIn",
                 },
@@ -57,9 +59,9 @@ const Footer = () => {
                   label: "WhatsApp",
                 },
                 {
-                  Icon: Mail,
-                  href: "mailto:agnawaleayantayoesdras@gmail.com",
-                  label: "Email",
+                  Icon: FacebookIcon,
+                  href: "https://www.facebook.com/EsdrasAGN",
+                  label: "Facebook",
                 },
               ].map(({ Icon, href, label }) => (
                 <a
@@ -76,15 +78,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-
-          <div className="mt-5 pt-4 border-t border-border/70 flex justify-center sm:justify-start">
-            <p className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs gap-1.5">
-              <span className="inline-flex items-center gap-1 text-primary">
-                <span className="font-mono">{lastUpdatedLabel}</span>
-              </span>
-              <span className="text-muted-foreground">{lastUpdatedDate}</span>
-            </p>
           </div>
         </div>
       </div>

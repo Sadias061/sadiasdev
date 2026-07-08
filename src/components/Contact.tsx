@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
+import LoadingDots from "@/components/ui/LoadingDots";
 import { toast } from "@/components/ui/sonner";
 import { useI18n } from "@/lib/i18n";
 
@@ -30,7 +31,7 @@ const Contact = () => {
           namePlaceholder: "Votre nom",
           emailPlaceholder: "Votre email",
           messagePlaceholder: "Votre message...",
-          sendingLabel: "Envoi en cours...",
+          sendingLabel: "Envoi en cours",
           submitLabel: "Envoyer",
         },
         notices: {
@@ -56,7 +57,7 @@ const Contact = () => {
           namePlaceholder: "Your name",
           emailPlaceholder: "Your email",
           messagePlaceholder: "Your message...",
-          sendingLabel: "Sending...",
+          sendingLabel: "Sending",
           submitLabel: "Send",
         },
         notices: {
@@ -120,7 +121,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding">
-      <div className="max-w-4xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -223,10 +224,20 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full disabled:opacity-70 disabled:cursor-not-allowed"
+              aria-busy={isSubmitting}
+              className="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold w-full min-h-[46px] disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              <Send size={16} />
-              {isSubmitting ? content.form.sendingLabel : content.form.submitLabel}
+              {isSubmitting ? (
+                <span className="inline-flex items-center gap-2">
+                  <span>{content.form.sendingLabel}</span>
+                  <LoadingDots />
+                </span>
+              ) : (
+                <>
+                  <Send size={16} />
+                  {content.form.submitLabel}
+                </>
+              )}
             </button>
           </motion.form>
         </div>

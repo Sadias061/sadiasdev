@@ -1,6 +1,8 @@
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, Folder, Github, ImageIcon, X } from "lucide-react";
+import { ExternalLink, Folder, ImageIcon, X } from "lucide-react";
+import GithubIcon from "@/components/icons/GithubIcon";
+import ImageWithSkeleton from "@/components/ui/ImageWithSkeleton";
 import { useI18n } from "@/lib/i18n";
 
 type ProjectItem = {
@@ -48,7 +50,7 @@ const Projects = () => {
               description:
                 "Systeme de gestion des reservations de salles de reunion et d'espaces de travail, avec integration d'un module de paiement.",
               techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
-              image: "/projects/reservation.png",
+              image: "/projects/reservation.webp",
             },
             {
               title: "Dashboard Analytics",
@@ -61,21 +63,21 @@ const Projects = () => {
                 "PostgreSQL",
                 "REST API",
               ],
-              image: "/projects/islam-pilier.png",
+              image: "/projects/dihas.webp",
             },
             {
               title: "Sadias Stock",
               description:
                 "Application de gestion de stock moderne, simple et efficace, permettant une gestion facile des produits et des stocks.",
               techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
-              image: "/projects/sadias-stock.png",
+              image: "/projects/stock.webp",
             },
             {
               title: "Systeme de Gestion",
               description:
                 "Dashboard de suivi de formation pour institution ou entreprise, avec visualisations en temps reel et fonctionnalites de collaboration.",
               techs: ["Angular", "Figma", "Tailwind CSS"],
-              image: "/projects/bynuss.png",
+              image: "/projects/bynuss.webp",
             },
             {
               title: "E-commerce SylaceShop",
@@ -84,7 +86,7 @@ const Projects = () => {
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
               github: "https://github.com/Sadias061/sylace-commerce.git",
               live: "https://sylaceshop.netlify.app/",
-              image: "/projects/sylaceshop-ecommerce.svg",
+              image: "/projects/sylaceshop.webp",
             },
           ],
         }
@@ -145,7 +147,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section-padding">
-      <div className="max-w-5xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -188,7 +190,7 @@ const Projects = () => {
                       aria-label="GitHub"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <Github size={16} />
+                      <GithubIcon size={16} />
                     </a>
                   )}
                   {project.live && (
@@ -267,11 +269,12 @@ const Projects = () => {
                 </div>
 
                 <div className="rounded-xl overflow-hidden border border-border bg-background">
-                  <img
+                  <ImageWithSkeleton
                     src={activePreview.image}
                     alt={`${content.previewActionLabel} ${activePreview.title}`}
                     className="w-full max-h-[70vh] object-contain"
-                    loading="lazy"
+                    wrapperClassName="min-h-[40vh] flex items-center justify-center"
+                    skeletonClassName="min-h-[40vh] w-full rounded-none"
                   />
                 </div>
               </motion.div>

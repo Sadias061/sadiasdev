@@ -98,13 +98,19 @@ const Navbar = () => {
         scrolled ? "bg-glass-strong" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
         <button
           onClick={() => handleClick("#hero")}
-          className="text-lg font-bold tracking-tight"
+          className="flex shrink-0 items-center rounded-md transition-opacity hover:opacity-90"
+          aria-label={locale === "fr" ? "Accueil" : "Home"}
         >
-          <span className="text-gradient-gold">EA</span>
-          <span className="text-foreground">.</span>
+          <img
+            src="/favicon.svg"
+            alt=""
+            className="h-9 w-auto"
+            width={36}
+            height={36}
+          />
         </button>
 
         {/* Desktop */}

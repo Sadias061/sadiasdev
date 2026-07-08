@@ -158,8 +158,60 @@
     border-color: hsl(var(--gold-glow) / 0.2);
   }
 
+  .btn-primary {
+    @apply bg-primary text-primary-foreground transition-colors duration-300 ease-out;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: hsl(var(--accent));
+  }
+
+  .btn-outline-primary {
+    @apply border border-primary text-primary transition-colors duration-300 ease-out;
+  }
+
+  .btn-outline-primary:hover {
+    @apply bg-primary/15;
+  }
+
+  .contact-icon-letter {
+    opacity: 0;
+    transform: translateY(3px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.35s ease;
+  }
+
+  .group:hover .contact-icon-letter,
+  .group:focus-visible .contact-icon-letter {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
   .section-padding {
     @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  .toaster [data-sonner-toast] {
+    background-color: hsl(var(--foreground)) !important;
+    color: hsl(var(--background)) !important;
+    border-color: hsl(var(--background) / 0.15) !important;
+    box-shadow: none !important;
+  }
+
+  .toaster [data-sonner-toast] [data-description] {
+    color: hsl(var(--background) / 0.75) !important;
+  }
+
+  .toaster [data-sonner-toast] [data-close-button] {
+    background-color: hsl(var(--background) / 0.1) !important;
+    border-color: hsl(var(--background) / 0.2) !important;
+    color: hsl(var(--background) / 0.75) !important;
+  }
+
+  .toaster [data-sonner-toast] [data-close-button]:hover {
+    background-color: hsl(var(--background) / 0.18) !important;
+    color: hsl(var(--background)) !important;
   }
 }
 

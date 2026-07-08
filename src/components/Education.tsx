@@ -86,7 +86,7 @@ const Education = () => {
 
   return (
     <section id="education" className="section-padding">
-      <div className="max-w-5xl mx-auto" ref={ref}>
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

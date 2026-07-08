@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  Github,
-  LinkedinIcon,
-  Mail,
-  MessageCircle,
-} from "lucide-react";
+import { ArrowDown, Layers3, MessageCircle } from "lucide-react";
+import AnimatedContactIcon from "@/components/icons/AnimatedContactIcon";
+import FacebookIcon from "@/components/icons/FacebookIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import { useI18n } from "@/lib/i18n";
 
 const Hero = () => {
@@ -32,7 +30,7 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center section-padding"
     >
-      <div className="max-w-4xl mx-auto text-center z-10 w-full">
+      <div className="max-w-7xl mx-auto text-center z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,9 +74,9 @@ const Hero = () => {
                 .querySelector("#contact")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:glow-gold-strong transition-all duration-300 w-full sm:w-auto"
+            className="btn-primary group inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold w-full sm:w-auto"
           >
-            <Mail size={16} />
+            <AnimatedContactIcon size={16} />
             {content.contactCta}
           </a>
           <a
@@ -89,8 +87,9 @@ const Hero = () => {
                 .querySelector("#services")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg border border-primary text-primary text-sm font-semibold hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto"
+            className="btn-outline-primary inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold w-full sm:w-auto"
           >
+            <Layers3 size={16} />
             {content.servicesCta}
           </a>
         </motion.div>
@@ -103,7 +102,7 @@ const Hero = () => {
         >
           {[
             {
-              Icon: Github,
+              Icon: GithubIcon,
               href: "https://github.com/Sadias061",
               label: "GitHub",
             },
@@ -118,9 +117,9 @@ const Hero = () => {
               label: "WhatsApp",
             },
             {
-              Icon: Mail,
-              href: "mailto:agnawaleayantayoesdras@gmail.com",
-              label: "Email",
+              Icon: FacebookIcon,
+              href: "https://www.facebook.com/EsdrasAGN",
+              label: "Facebook",
             },
           ].map(({ Icon, href, label }) => (
             <a
