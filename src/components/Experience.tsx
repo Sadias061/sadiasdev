@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+  import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
@@ -19,7 +19,7 @@ const Experience = () => {
             company: "H-KIM",
             period: "mars 2025 - Present",
             description:
-              "Développement d'un système de gestion des réservations de salles de réunion et d'espaces de travail, avec intégration d'un module de paiement - Projet de soutenance. Mention: Excellente.",
+              "Développement d'un système de gestion des réservations de salles de réunion et d'espaces de travail, avec intégration d'un module de paiement - Projet de soutenance.",
             techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
           },
           {
@@ -50,7 +50,7 @@ const Experience = () => {
             company: "H-KIM",
             period: "Mar 2025 - Present",
             description:
-              "Development of a meeting room and workspace reservation management system with a payment module - graduation project. Distinction: Excellent.",
+              "Development of a meeting room and workspace reservation management system with a payment module - graduation project.",
             techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
           },
           {

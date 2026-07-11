@@ -19,9 +19,9 @@ const Navbar = () => {
     () => [
       { label: locale === "fr" ? "Accueil" : "Home", href: "#hero" },
       { label: locale === "fr" ? "A propos" : "About", href: "#about" },
-      { label: locale === "fr" ? "Competences" : "Skills", href: "#skills" },
+      { label: locale === "fr" ? "Compétences" : "Skills", href: "#skills" },
       { label: locale === "fr" ? "Formation" : "Education", href: "#education" },
-      { label: locale === "fr" ? "Experiences" : "Experience", href: "#experience" },
+      { label: locale === "fr" ? "Expériences" : "Experience", href: "#experience" },
       { label: locale === "fr" ? "Projets" : "Projects", href: "#projects" },
       { label: locale === "fr" ? "Services" : "Services", href: "#services" },
       { label: locale === "fr" ? "Contact" : "Contact", href: "#contact" },

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Layers3, MessageCircle } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import AnimatedContactIcon from "@/components/icons/AnimatedContactIcon";
+import AnimatedServicesIcon from "@/components/icons/AnimatedServicesIcon";
 import FacebookIcon from "@/components/icons/FacebookIcon";
 import GithubIcon from "@/components/icons/GithubIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { useI18n } from "@/lib/i18n";
 
 const Hero = () => {
@@ -89,7 +91,7 @@ const Hero = () => {
             }}
             className="btn-outline-primary inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold w-full sm:w-auto"
           >
-            <Layers3 size={16} />
+            <AnimatedServicesIcon size={16} />
             {content.servicesCta}
           </a>
         </motion.div>
@@ -112,7 +114,7 @@ const Hero = () => {
               label: "LinkedIn",
             },
             {
-              Icon: MessageCircle,
+              Icon: WhatsAppIcon,
               href: "https://wa.me/2290190705060",
               label: "WhatsApp",
             },

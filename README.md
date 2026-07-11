@@ -1,14 +1,14 @@
 # Portfolio - Esdras AGNAWALE
 
-Portfolio personnel de **Esdras AGNAWALE**, analyste programmeur **Full-Stack & Mobile**.
+Portfolio personnel de **Esdras AGNAWALE**, analyste programmeur | Développeur web**.
 
 ## Informations
 
-- Nom: Esdras AGNAWALE
-- Role: Analyste Programmeur (Full-Stack & Mobile)
+- Nom: Esdras A. AGNAWALE
+- Role: Analyste Programmeur
 - Localisation: Calavi, Womey - Benin
-- Email: agnawaleayantayoesdras@gmail.com
-- Telephone / WhatsApp: +229 01 90 70 50 60
+- Email: [agnawaleayantayoesdras@gmail.com](mailto:agnawaleayantayoesdras@gmail.com)
+- Telephone / WhatsApp: [+229 01 90 70 50 60](https://wa.me/2290190705060)
 
 ## Prerequis
 
@@ -46,7 +46,7 @@ npm run preview
 
 Le formulaire de contact envoie les messages vers:
 
-- agnawaleayantayoesdras@gmail.com
+- [agnawaleayantayoesdras@gmail.com](mailto:agnawaleayantayoesdras@gmail.com)
 
 Il utilise `formsubmit.co` en mode AJAX.
 
@@ -55,4 +55,4 @@ Pour pouvoir repondre a la personne depuis Gmail:
 - le champ `email` du formulaire est transmis avec le message,
 - Gmail te permet de repondre directement au contact (reply-to).
 
-Au tout premier envoi en production, verifie et confirme l'email d'activation recu dans Gmail pour activer la reception des messages.
+Au tout premier envoi en production, vérifie et confirme l'email d'activation reçu dans Gmail pour activer la reception des messages.

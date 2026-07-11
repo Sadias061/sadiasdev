@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
+import { Send, Mail, MapPin, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import LoadingDots from "@/components/ui/LoadingDots";
 import { toast } from "@/components/ui/sonner-toast";
 import { useI18n } from "@/lib/i18n";
@@ -45,7 +46,7 @@ const Contact = () => {
         heading: "Travaillons",
         headingAccent: "ensemble",
         intro:
-          "Avez-vous un projet en tête ou une opportunité ? N'hésitez pas à me contacter.",
+          "Avez-vous un projet en tête ou une opportunité ? N'hésitez pas à me faire part.",
         form: {
           namePlaceholder: "Votre nom",
           emailPlaceholder: "Votre email",
@@ -66,7 +67,7 @@ const Contact = () => {
         infos: [
           { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
           { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
-          { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: WhatsAppIcon, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
           { Icon: MapPin, label: "Localisation", value: "Calavi, Womey - Benin", wrapAnywhere: false },
         ],
       }
@@ -75,7 +76,7 @@ const Contact = () => {
         heading: "Let's",
         headingAccent: "work together",
         intro:
-          "Do you have a project in mind or an opportunity? Feel free to contact me.",
+          "Do you have a project in mind or an opportunity? Feel free to send me a message.",
         form: {
           namePlaceholder: "Your name",
           emailPlaceholder: "Your email",
@@ -96,7 +97,7 @@ const Contact = () => {
         infos: [
           { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
           { Icon: Phone, label: "Phone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
-          { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: WhatsAppIcon, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
           { Icon: MapPin, label: "Localisation", value: "Calavi, Womey - Benin", wrapAnywhere: false },
         ],
       };

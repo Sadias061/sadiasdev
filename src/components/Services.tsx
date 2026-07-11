@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Server, Layers3, Handshake, LifeBuoy } from "lucide-react";
+import { Code2, Server, Layers3, Handshake, Wrench } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 const Services = () => {
@@ -14,22 +14,23 @@ const Services = () => {
           sectionLabel: "Services",
           heading: "Services",
           headingAccent: "proposés",
-          subtitle: "Création de sites web vitrines et solutions adaptées à vos besoins.",
+          subtitle:
+            "Création de sites web vitrines et solutions adaptées à vos besoins.",
           items: [
             {
-              title: "Développement Frontend",
+              title: "Sites web",
               description:
                 "Création de sites web vitrines modernes, rapides et responsives.",
               Icon: Code2,
             },
             {
-              title: "Développement Backend",
+              title: "Bases de données",
               description:
                 "Conception d'APIs sécurisées, logique métier solide et intégration de bases de données.",
               Icon: Server,
             },
             {
-              title: "Applications Full-Stack",
+              title: "Applications Web",
               description:
                 "Développement de solutions complètes, de l'interface utilisateur jusqu'au déploiement.",
               Icon: Layers3,
@@ -44,7 +45,7 @@ const Services = () => {
               title: "Maintenance & Support Technique",
               description:
                 "Suivi continu, corrections, évolutions et assistance technique pour garder vos applications stables.",
-              Icon: LifeBuoy,
+              Icon: Wrench,
             },
           ],
         }
@@ -52,22 +53,23 @@ const Services = () => {
           sectionLabel: "Services",
           heading: "Services",
           headingAccent: "offered",
-          subtitle: "Creation of showcase websites and complete solutions adapted to your needs.",
+          subtitle:
+            "Creation of showcase websites and complete solutions adapted to your needs.",
           items: [
             {
-              title: "Frontend Development",
+              title: "Websites",
               description:
                 "Creation of modern, fast and responsive showcase websites and web applications.",
               Icon: Code2,
             },
             {
-              title: "Backend Development",
+              title: "Databases",
               description:
                 "Secure API design, strong business logic and reliable database integration for web applications.",
               Icon: Server,
             },
             {
-              title: "Full-Stack Applications",
+              title: "Applications Web",
               description:
                 "End-to-end product development, from user interface to deployment for web applications.",
               Icon: Layers3,
@@ -82,7 +84,7 @@ const Services = () => {
               title: "Maintenance & Support Technique",
               description:
                 "Ongoing support, fixes and improvements to keep your web applications stable.",
-              Icon: LifeBuoy,
+              Icon: Wrench,
             },
           ],
         };

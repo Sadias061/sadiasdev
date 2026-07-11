@@ -1,14 +1,14 @@
-import { MessageCircle } from "lucide-react";
 import FacebookIcon from "@/components/icons/FacebookIcon";
 import GithubIcon from "@/components/icons/GithubIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { useI18n } from "@/lib/i18n";
 
 const Footer = () => {
   const { locale } = useI18n();
   const rightsText =
-    locale === "fr" ? "Tous droits reserves." : "All rights reserved.";
-  const lastUpdatedIso = "2026-07-10";
+    locale === "fr" ? "Tous droits réservés." : "All rights reserved.";
+  const lastUpdatedIso = "2026-07-11";
   const lastUpdatedDate = new Intl.DateTimeFormat(
     locale === "fr" ? "fr-FR" : "en-US",
     {
@@ -54,7 +54,7 @@ const Footer = () => {
                   label: "LinkedIn",
                 },
                 {
-                  Icon: MessageCircle,
+                  Icon: WhatsAppIcon,
                   href: "https://wa.me/2290190705060",
                   label: "WhatsApp",
                 },

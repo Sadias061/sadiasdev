@@ -39,7 +39,7 @@ const Education = () => {
               institution: "Projet académique",
               period: "13/06/2025",
               description:
-                "Conception et développement d'une application de gestion des réservations avec module de paiement. Mention: Excellent.",
+                "Conception et développement d'une application de gestion des réservations avec module de paiement.",
               highlights: [
                 "Laravel",
                 "MySQL",
@@ -88,7 +88,7 @@ const Education = () => {
               institution: "Academic project",
               period: "06/13/2025",
               description:
-                "Design and development of a reservation management application with payment module. Distinction: Excellent.",
+                "Design and development of a reservation management application with payment module.",
               highlights: [
                 "Laravel",
                 "MySQL",
