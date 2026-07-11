@@ -8,81 +8,105 @@ const Education = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const content = locale === "fr"
-    ? {
-        sectionLabel: "Formation",
-        heading: "Mon",
-        headingAccent: "parcours academique",
-        items: [
-          {
-            type: "degree",
-            level: "Diplome",
-            title: "Systemes Informatiques et Logiciel",
-            institution: "Formation superieure",
-            period: "2022 - 2025",
-            description:
-              "Parcours axe sur le developpement web/mobile, l'ingenierie logicielle, les APIs et les bases de donnees.",
-            highlights: [
-              "Genie logiciel",
-              "Bases de donnees",
-              "Developpement web",
-              "Developpement mobile",
-            ],
-          },
-          {
-            type: "project",
-            level: "Soutenance",
-            title: "Systeme de reservation d'espaces de travail",
-            institution: "Projet academique",
-            period: "2025",
-            description:
-              "Conception et developpement d'une application de gestion des reservations avec module de paiement. Mention: Excellent.",
-            highlights: [
-              "Laravel",
-              "MySQL",
-              "Architecture applicative",
-              "Gestion de projet",
-            ],
-          },
-        ],
-      }
-    : {
-        sectionLabel: "Education",
-        heading: "My",
-        headingAccent: "academic journey",
-        items: [
-          {
-            type: "degree",
-            level: "Degree",
-            title: "Information Systems and Software",
-            institution: "Higher education",
-            period: "2022 - 2025",
-            description:
-              "Program focused on web/mobile development, software engineering, APIs and databases.",
-            highlights: [
-              "Software engineering",
-              "Databases",
-              "Web development",
-              "Mobile development",
-            ],
-          },
-          {
-            type: "project",
-            level: "Thesis Project",
-            title: "Workspace Reservation System",
-            institution: "Academic project",
-            period: "2025",
-            description:
-              "Design and development of a reservation management application with payment module. Distinction: Excellent.",
-            highlights: [
-              "Laravel",
-              "MySQL",
-              "Application architecture",
-              "Project management",
-            ],
-          },
-        ],
-      };
+  const content =
+    locale === "fr"
+      ? {
+          sectionLabel: "Formation",
+          heading: "Mon",
+          headingAccent: "parcours académique",
+          items: [
+            // Formation supérieure
+            {
+              type: "degree",
+              level: "Diplôme",
+              title: "Systèmes Informatiques et Logiciel",
+              institution: "Formation supérieure",
+              period: "2022 - 2025",
+              description:
+                "Parcours axé sur le développement web/mobile, l'ingénierie logicielle, les APIs et les bases de données.",
+              highlights: [
+                "Genie logiciel",
+                "Bases de donnees",
+                "Developpement web",
+                "Developpement mobile",
+              ],
+            },
+            // Projet académique
+            {
+              type: "project",
+              level: "Soutenance",
+              title: "Système de réservation d'espaces de travail",
+              institution: "Projet académique",
+              period: "13/06/2025",
+              description:
+                "Conception et développement d'une application de gestion des réservations avec module de paiement. Mention: Excellent.",
+              highlights: [
+                "Laravel",
+                "MySQL",
+                "Architecture applicative",
+                "Gestion de projet",
+              ],
+            },
+            // Baccalauréat
+            {
+              type: "degree",
+              level: "Baccalauréat",
+              title: "Série Scientifique",
+              institution: "Collège d'Enseignement Général de Glazoué",
+              period: "2021 - 2022",
+              description: "Parcours axé sur les sciences et technologies.",
+            },
+          ],
+        }
+      : {
+          // Section en anglais
+          sectionLabel: "Education",
+          heading: "My",
+          headingAccent: "academic journey",
+          items: [
+            // Formation supérieure en anglais
+            {
+              type: "degree",
+              level: "Degree",
+              title: "Information Systems and Software",
+              institution: "Higher education",
+              period: "2022 - 2025",
+              description:
+                "Program focused on web/mobile development, software engineering, APIs and databases.",
+              highlights: [
+                "Software engineering",
+                "Databases",
+                "Web development",
+                "Mobile development",
+              ],
+            },
+            // Projet académique en anglais
+            {
+              type: "project",
+              level: "Thesis Project",
+              title: "Workspace Reservation System",
+              institution: "Academic project",
+              period: "06/13/2025",
+              description:
+                "Design and development of a reservation management application with payment module. Distinction: Excellent.",
+              highlights: [
+                "Laravel",
+                "MySQL",
+                "Application architecture",
+                "Project management",
+              ],
+            },
+            // Baccalauréat en anglais
+            {
+              type: "degree",
+              level: "High School Diploma",
+              title: "Scientific Series",
+              institution: "General Education College of Glazoué",
+              period: "2021 - 2022",
+              description: "Program focused on science and technology.",
+            },
+          ],
+        };
 
   return (
     <section id="education" className="section-padding">
@@ -96,7 +120,8 @@ const Education = () => {
             {content.sectionLabel}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-10">
-            {content.heading} <span className="text-gradient-gold">{content.headingAccent}</span>
+            {content.heading}{" "}
+            <span className="text-gradient-gold">{content.headingAccent}</span>
           </h2>
         </motion.div>
 
@@ -139,7 +164,9 @@ const Education = () => {
                       <h3 className="text-base sm:text-lg font-semibold text-foreground">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">{item.institution}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.institution}
+                      </p>
                     </div>
                   </div>
 
@@ -153,7 +180,8 @@ const Education = () => {
                   {item.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                {item.highlights && item.highlights.length > 0 && (
+                <div className="hidden md:flex flex-wrap gap-2">
                   {item.highlights.map((highlight) => (
                     <span
                       key={highlight}
@@ -163,12 +191,13 @@ const Education = () => {
                     </span>
                   ))}
                 </div>
+                )}
               </div>
             </motion.article>
           ))}
         </div>
 
-          {/* Certification */}
+        {/* Certification */}
         {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

@@ -15,27 +15,27 @@ const Experience = () => {
         headingAccent: "experiences",
         items: [
           {
-            role: "Developpeur Full-stack",
-            company: "Projet academique - Contrat",
+            role: "Développeur Web",
+            company: "H-KIM",
             period: "mars 2025 - Present",
             description:
-              "Developpement d'un systeme de gestion des reservations de salles de reunion et d'espaces de travail, avec integration d'un module de paiement - Projet de soutenance. Mention: Excellent.",
+              "Développement d'un système de gestion des réservations de salles de réunion et d'espaces de travail, avec intégration d'un module de paiement - Projet de soutenance. Mention: Excellente.",
             techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
           },
           {
-            role: "Developpeur Full-stack",
+            role: "Développeur Web",
             company: "DIHA'S",
             period: "sept. 2025 - nov. 2025",
             description:
-              "Developpement d'APIs RESTful avec Node.js. Developpement d'un site de type blog sous Laravel, destine a la publication et a la gestion des articles et contenus de l'entreprise. Analyse et conception d'un dashboard de gestion et suivi d'evenements islamiques.",
+              "Développement d'APIs RESTful avec Node.js. Développement d'un site de type blog sous Laravel, destiné à la publication et à la gestion des articles et contenus de l'entreprise. Analyse et conception d'un tableau de bord de gestion et suivi d'événements islamiques.",
             techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
           },
           {
-            role: "Developpeur mobile",
+            role: "Développeur mobile",
             company: "RAB-TECH",
             period: "juil. 2024 - aout 2024",
             description:
-              "Initiation a Flutter et creation d'une application mobile de location de voitures: Locar.",
+              "Initiation à Flutter et création d'une application mobile de location de voitures: Locar.",
             techs: ["Flutter", "Dart", "Git"],
           },
         ],
@@ -46,15 +46,15 @@ const Experience = () => {
         headingAccent: "experience",
         items: [
           {
-            role: "Full-stack Developer",
-            company: "Academic Project - Contract",
+            role: "Web Developer",
+            company: "H-KIM",
             period: "Mar 2025 - Present",
             description:
               "Development of a meeting room and workspace reservation management system with a payment module - graduation project. Distinction: Excellent.",
             techs: ["Laravel", "HTML/CSS", "Tailwind CSS", "PHP", "JavaScript", "Git"],
           },
           {
-            role: "Full-stack Developer",
+            role: "Web Developer",
             company: "DIHA'S",
             period: "Sep 2025 - Nov 2025",
             description:
@@ -62,7 +62,7 @@ const Experience = () => {
             techs: ["Node.js", "Laravel", "Next.js", "Postman", "Git"],
           },
           {
-            role: "Mobile Developer",
+            role: "Mobile App Developer",
             company: "RAB-TECH",
             period: "Jul 2024 - Aug 2024",
             description:

@@ -148,7 +148,7 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden text-foreground"
+            className="xl:hidden ml-2 text-foreground"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>

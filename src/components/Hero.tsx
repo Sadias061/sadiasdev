@@ -11,16 +11,16 @@ const Hero = () => {
   const content =
     locale === "fr"
       ? {
-          role: "Analyste Programmeur · Dev Full-Stack",
+          role: "Analyste Programmeur · Développeur Web",
           description:
-            "Je cree des applications web et mobiles simples a utiliser. J'ai 1 an d'experience et je suis base a Calavi. Mon objectif est de proposer des solutions rapides, claires et utiles pour des besoins concrets.",
+            "Je crée des sites et applications web simples à utiliser. Mon objectif est d'analyser les besoins et de proposer des solutions claires et utiles pour des besoins concrets.",
           contactCta: "Contactez-moi",
           servicesCta: "Voir mes services",
         }
       : {
-          role: "Software Analyst - Full-Stack & Mobile",
+          role: "Software Analyst · Web Developer",
           description:
-            "I build web and mobile apps that are simple to use. I have 1 year of experience and I am based in Calavi. My goal is to deliver solutions that are fast, clear, and useful for real business needs.",
+            "I build websites and web apps that are simple to use. My goal is to analyze the needs and deliver solutions that are clear and useful for real business needs.",
           contactCta: "Contact me",
           servicesCta: "View my services",
         };
@@ -128,7 +128,7 @@ const Hero = () => {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
               aria-label={label}
-              className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:glow-gold"
+              className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/20 transition-all duration-300 hover:glow-gold"
             >
               <Icon size={18} />
             </a>

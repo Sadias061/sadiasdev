@@ -193,10 +193,18 @@
   }
 
   .toaster [data-sonner-toast] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.625rem !important;
     background-color: hsl(var(--foreground)) !important;
     color: hsl(var(--background)) !important;
     border-color: hsl(var(--background) / 0.15) !important;
     box-shadow: none !important;
+  }
+
+  .toaster [data-sonner-toast] [data-content] {
+    flex: 1 !important;
+    min-width: 0 !important;
   }
 
   .toaster [data-sonner-toast] [data-description] {
@@ -204,14 +212,32 @@
   }
 
   .toaster [data-sonner-toast] [data-close-button] {
-    background-color: hsl(var(--background) / 0.1) !important;
-    border-color: hsl(var(--background) / 0.2) !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    order: 99 !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    border: none !important;
     color: hsl(var(--background) / 0.75) !important;
   }
 
   .toaster [data-sonner-toast] [data-close-button]:hover {
-    background-color: hsl(var(--background) / 0.18) !important;
+    background: transparent !important;
     color: hsl(var(--background)) !important;
+  }
+
+  .toaster [data-sonner-toast]:hover [data-close-button]:hover {
+    background: transparent !important;
+  }
+
+  .toaster[data-sonner-toaster][dir="ltr"] [data-close-button] {
+    --toast-close-button-start: auto;
+    --toast-close-button-end: auto;
+    --toast-close-button-transform: none;
   }
 }
 

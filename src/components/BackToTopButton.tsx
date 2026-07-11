@@ -32,7 +32,7 @@ const BackToTopButton = () => {
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.28, ease: "easeOut" }}
           aria-label={locale === "fr" ? "Retour en haut" : "Back to top"}
-          className="fixed bottom-5 right-4 sm:right-6 z-[60] inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/35 bg-glass-strong text-primary shadow-[0_10px_24px_hsl(var(--gold-glow)/0.16)] backdrop-blur-xl transition-colors duration-200 hover:border-primary/55"
+          className="fixed bottom-5 right-4 sm:right-6 z-[60] inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/35 bg-glass-strong text-primary shadow-[0_10px_24px_hsl(var(--gold-glow)/0.1)] backdrop-blur-xl transition-colors duration-200 hover:border-primary/20"
         >
           <ArrowUp size={18} />
         </motion.button>

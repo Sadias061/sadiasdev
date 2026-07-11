@@ -2,11 +2,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import LoadingDots from "@/components/ui/LoadingDots";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/components/ui/sonner-toast";
 import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
 const CONTACT_EMAIL = "agnawaleayantayoesdras@gmail.com";
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+const CONTACT_TOAST_ID = "contact-form";
+
+type ContactField = "name" | "email" | "message";
 
 const Contact = () => {
   const { locale } = useI18n();
@@ -19,6 +23,21 @@ const Contact = () => {
     website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fieldError, setFieldError] = useState<ContactField | null>(null);
+
+  const fieldClassName = (field: ContactField, extra?: string) =>
+    cn(
+      "w-full px-4 py-3 rounded-lg bg-card border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none transition-colors",
+      fieldError === field
+        ? "border-primary ring-1 ring-primary/30 focus:border-primary focus:ring-primary/30"
+        : "border-border focus:border-primary",
+      extra,
+    );
+
+  const showFieldError = (field: ContactField, message: string) => {
+    setFieldError(field);
+    toast.error(message, { id: CONTACT_TOAST_ID });
+  };
 
   const content = locale === "fr"
     ? {
@@ -26,7 +45,7 @@ const Contact = () => {
         heading: "Travaillons",
         headingAccent: "ensemble",
         intro:
-          "Vous avez un projet en tete ou une opportunite ? N'hesitez pas a me contacter.",
+          "Avez-vous un projet en tête ou une opportunité ? N'hésitez pas à me contacter.",
         form: {
           namePlaceholder: "Votre nom",
           emailPlaceholder: "Votre email",
@@ -35,14 +54,18 @@ const Contact = () => {
           submitLabel: "Envoyer",
         },
         notices: {
-          success: "Message envoye avec succes.",
-          error: "Impossible d'envoyer le message. Reessaie plus tard.",
+          success: "Message envoyé avec succès.",
+          error: "Impossible d'envoyer le message. Réessayer plus tard.",
           submitError: "Erreur lors de l'envoi.",
-          subjectPrefix: "Nouveau message portfolio",
+          subjectPrefix: "Nouveau message",
+          nameRequired: "Veuillez renseigner votre nom.",
+          emailRequired: "Veuillez renseigner votre email.",
+          emailInvalid: "Veuillez saisir une adresse email valide.",
+          messageRequired: "Veuillez renseigner votre message.",
         },
         infos: [
           { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
-          { Icon: Phone, label: "Telephone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
+          { Icon: Phone, label: "Téléphone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
           { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
           { Icon: MapPin, label: "Localisation", value: "Calavi, Womey - Benin", wrapAnywhere: false },
         ],
@@ -65,12 +88,16 @@ const Contact = () => {
           error: "Unable to send the message. Please try again later.",
           submitError: "Error while sending message.",
           subjectPrefix: "New portfolio message",
+          nameRequired: "Please enter your name.",
+          emailRequired: "Please enter your email.",
+          emailInvalid: "Please enter a valid email address.",
+          messageRequired: "Please enter your message.",
         },
         infos: [
           { Icon: Mail, label: "Email", value: CONTACT_EMAIL, wrapAnywhere: true },
           { Icon: Phone, label: "Phone", value: "+229 01 90 70 50 60", wrapAnywhere: false },
           { Icon: MessageCircle, label: "WhatsApp", value: "+229 01 90 70 50 60", wrapAnywhere: false },
-          { Icon: MapPin, label: "Location", value: "Calavi, Womey - Benin", wrapAnywhere: false },
+          { Icon: MapPin, label: "Localisation", value: "Calavi, Womey - Benin", wrapAnywhere: false },
         ],
       };
 
@@ -78,6 +105,33 @@ const Contact = () => {
     e.preventDefault();
 
     if (isSubmitting) return;
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name) {
+      showFieldError("name", content.notices.nameRequired);
+      return;
+    }
+
+    if (!email) {
+      showFieldError("email", content.notices.emailRequired);
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showFieldError("email", content.notices.emailInvalid);
+      return;
+    }
+
+    if (!message) {
+      showFieldError("message", content.notices.messageRequired);
+      return;
+    }
+
+    setFieldError(null);
+
     setIsSubmitting(true);
 
     try {
@@ -88,10 +142,10 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `${content.notices.subjectPrefix} - ${formData.name}`,
+          name,
+          email,
+          message,
+          _subject: `${content.notices.subjectPrefix} - ${name}`,
           _captcha: "false",
           _template: "table",
           _honey: formData.website,
@@ -110,10 +164,11 @@ const Contact = () => {
         throw new Error(result.message || content.notices.submitError);
       }
 
-      toast.success(content.notices.success);
+      toast.success(content.notices.success, { id: CONTACT_TOAST_ID });
+      setFieldError(null);
       setFormData({ name: "", email: "", message: "", website: "" });
     } catch {
-      toast.error(content.notices.error);
+      toast.error(content.notices.error, { id: CONTACT_TOAST_ID });
     } finally {
       setIsSubmitting(false);
     }
@@ -171,6 +226,7 @@ const Contact = () => {
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
+            noValidate
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -180,22 +236,22 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder={content.form.namePlaceholder}
-                required
                 value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                onChange={(e) => {
+                  setFormData({ ...formData, name: e.target.value });
+                  if (fieldError === "name") setFieldError(null);
+                }}
+                className={fieldClassName("name")}
               />
               <input
                 type="email"
                 placeholder={content.form.emailPlaceholder}
-                required
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-lg bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  if (fieldError === "email") setFieldError(null);
+                }}
+                className={fieldClassName("email")}
               />
               <input
                 type="text"
@@ -213,12 +269,12 @@ const Contact = () => {
               <textarea
                 placeholder={content.form.messagePlaceholder}
                 rows={5}
-                required
                 value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                className="h-full w-full px-4 py-3 rounded-lg bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                onChange={(e) => {
+                  setFormData({ ...formData, message: e.target.value });
+                  if (fieldError === "message") setFieldError(null);
+                }}
+                className={fieldClassName("message", "h-full resize-none")}
               />
             </div>
             <button

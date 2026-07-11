@@ -15,9 +15,9 @@ const About = () => {
           sectionLabel: "A propos",
           heading: "Qui suis-je",
           intro1:
-            "Je suis Esdras AGNAWALE, analyste programmeur Full-Stack & Mobile avec 1 an d'experience, passionné par la technologie et l'innovation. Diplômé en Systemes Informatiques et Logiciel, je maitrise un large eventail de technologies web et mobiles.",
+            "Je suis Esdras AGNAWALE, analyste programmeur avec 1 an d'experience, passionné par la technologie et l'innovation. Diplômé en Systemes Informatiques et Logiciel à l'UATM GASA FORMATION de Calavi, je maitrise un large eventail de technologies web.",
           intro2:
-            "Basé a Calavi, je suis disponible pour des projets freelances et des contrats de travail. Mon objectif est de concevoir des solutions robustes, elegantes et performantes qui repondent aux besoins reels des utilisateurs.",
+            "Je suis disponible pour toute demande de création de site web ou application web. Mon objectif est de concevoir des solutions claires et utiles pour des besoins concrets.",
           cards: [
             {
               Icon: GraduationCap,
@@ -27,7 +27,7 @@ const About = () => {
             {
               Icon: MapPin,
               title: "Localisation",
-              desc: "Calavi, Womey - Benin",
+              desc: "Calavi, Atlantique - Benin",
             },
             {
               Icon: Sparkles,
@@ -40,9 +40,9 @@ const About = () => {
           sectionLabel: "About",
           heading: "Who am I",
           intro1:
-            "I am Esdras AGNAWALE, a Full-Stack and Mobile software analyst with 1 year of experience, passionate about technology and innovation. Graduated in Information Systems and Software, I work with a broad range of web and mobile technologies.",
+            "I am Esdras AGNAWALE, a software analyst with 1 year of experience, passionate about technology and innovation. Graduated in Information Systems and Software at UATM GASA FORMATION in Calavi, I work with a broad range of web technologies.",
           intro2:
-            "Based in Calavi, I am available for freelance projects and work contracts. My goal is to design robust, elegant and performant solutions that solve real user needs.",
+            "I am available for any request for the creation of a website or web application. My goal is to design clear and useful solutions for concrete needs.",
           cards: [
             {
               Icon: GraduationCap,
@@ -52,12 +52,12 @@ const About = () => {
             {
               Icon: MapPin,
               title: "Location",
-              desc: "Calavi, Womey - Benin",
+              desc: "Calavi, Atlantique - Benin",
             },
             {
               Icon: Sparkles,
               title: "Passion",
-              desc: "Building simple, fast, and useful websites and apps for everyday needs",
+              desc: "Building simple, clear, and useful websites and apps for everyday needs",
             },
           ],
         };

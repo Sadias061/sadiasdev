@@ -33,7 +33,7 @@ const Skills = () => {
             skills: [
               { name: "React", level: 70 },
               { name: "Next.js", level: 70 },
-              { name: "Flutter", level: 70 },
+              { name: "Flutter", level: 60 },
               { name: "Angular", level: 60 },
             ],
           },
@@ -85,7 +85,7 @@ const Skills = () => {
             skills: [
               { name: "React", level: 70 },
               { name: "Next.js", level: 70 },
-              { name: "Flutter", level: 70 },
+              { name: "Flutter", level: 60 },
               { name: "Angular", level: 60 },
             ],
           },
@@ -155,13 +155,13 @@ const Skills = () => {
                 {skills.map((skill, skillIndex) => (
                   <div
                     key={skill.name}
-                    className="rounded-lg border border-border/80 bg-background/30 px-3 py-2.5"
+                    className="px-3 py-2.5"
                   >
                     <div className="flex items-center justify-between gap-3 mb-2">
                       <span className="text-sm text-foreground font-medium">
                         {skill.name}
                       </span>
-                      <span className="text-xs font-mono px-2 py-1 rounded bg-primary/10 text-primary shrink-0">
+                      <span className="text-sm font-mono px-2 text-primary shrink-0">
                         {skill.level}%
                       </span>
                     </div>

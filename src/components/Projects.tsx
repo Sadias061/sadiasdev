@@ -14,6 +14,17 @@ type ProjectItem = {
   image: string;
 };
 
+type ProjectsContent = {
+  sectionLabel: string;
+  heading: string;
+  headingAccent: string;
+  previewActionLabel: string;
+  previewTitleLabel: string;
+  closePreviewLabel: string;
+  liveLabel: string;
+  projects: ProjectItem[];
+};
+
 const Projects = () => {
   const { locale } = useI18n();
   const ref = useRef(null);
@@ -33,7 +44,7 @@ const Projects = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activePreview]);
 
-  const content =
+  const content: ProjectsContent =
     locale === "fr"
       ? {
           sectionLabel: "Portfolio",
@@ -46,16 +57,16 @@ const Projects = () => {
           projects: [
             {
               title:
-                "Plateforme de reservation de salles et d'espaces de travail",
+                "Plateforme de réservation de salles de réunion et d'espaces de travail",
               description:
-                "Systeme de gestion des reservations de salles de reunion et d'espaces de travail, avec integration d'un module de paiement.",
+                "Système de gestion des réservations de salles de réunion et d'espaces de travail, avec intégration d'un module de paiement.",
               techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
               image: "/projects/reservation.webp",
             },
             {
-              title: "Dashboard Analytics",
+              title: "Tableau de bord Analytics",
               description:
-                "Tableau de bord interactif pour la visualisation de donnees en temps reel avec graphiques dynamiques.",
+                "Tableau de bord interactif pour la visualisation de données en temps réel avec graphiques dynamiques.",
               techs: [
                 "Node.js",
                 "Next.js",
@@ -66,27 +77,33 @@ const Projects = () => {
               image: "/projects/dihas.webp",
             },
             {
-              title: "Sadias Stock",
+              title: "Application de gestion de stock",
               description:
-                "Application de gestion de stock moderne, simple et efficace, permettant une gestion facile des produits et des stocks.",
+                "Application de gestion de stock moderne, simple et éfficace, permettant une gestion facile des produits et des stocks.",
               techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
               image: "/projects/stock.webp",
             },
             {
-              title: "Systeme de Gestion",
+              title: "Tableau de bord de gestion",
               description:
-                "Dashboard de suivi de formation pour institution ou entreprise, avec visualisations en temps reel et fonctionnalites de collaboration.",
+                "Dashboard de suivi de formation pour institution ou entreprise, avec visualisations en temps réel et fonctionnalités de collaboration.",
               techs: ["Angular", "Figma", "Tailwind CSS"],
               image: "/projects/bynuss.webp",
             },
             {
-              title: "E-commerce SylaceShop",
+              title: "Site e-commerce Sylace Shop",
               description:
-                "Site e-commerce avec interface utilisateur moderne et experience d'achat fluide.",
+                "Site e-commerce avec interface utilisateur moderne et expérience d'achat fluide.",
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
-              github: "https://github.com/Sadias061/sylace-commerce.git",
               live: "https://sylaceshop.netlify.app/",
               image: "/projects/sylaceshop.webp",
+            },
+            {
+              title: "Site e-commerce Novashop",
+              description:
+                "Site e-commerce Novashop avec interface utilisateur moderne et expérience d'achat fluide.",
+              techs: ["TypeScript", "TSX", "tailwindcss", "Next.js"],
+              image: "/projects/novashop.webp",
             },
           ],
         }
@@ -104,7 +121,7 @@ const Projects = () => {
               description:
                 "Reservation management system for meeting rooms and workspaces, with integrated payment module.",
               techs: ["Laravel", "Figma", "Bootstrap", "FedaPay"],
-              image: "/projects/reservation.png",
+              image: "/projects/reservation.webp",
             },
             {
               title: "Analytics Dashboard",
@@ -117,30 +134,36 @@ const Projects = () => {
                 "PostgreSQL",
                 "REST API",
               ],
-              image: "/projects/islam-pilier.png",
+              image: "/projects/dihas.webp",
             },
             {
-              title: "Sadias Stock",
+              title: "Stock Management Application",
               description:
                 "Modern stock management application focused on simple and efficient product and inventory handling.",
               techs: ["Next.js", "Prisma", "Tailwind CSS", "Vercel"],
-              image: "/projects/sadias-stock.png",
+              image: "/projects/stock.webp",
             },
             {
-              title: "Management System",
+              title: "Management Dashboard",
               description:
                 "Training tracking dashboard for institutions or companies, with real-time data views and collaboration features.",
               techs: ["Angular", "Figma", "Tailwind CSS"],
-              image: "/projects/bynuss.png",
+              image: "/projects/bynuss.webp",
             },
             {
-              title: "SylaceShop E-commerce",
+              title: "Sylace Shop E-commerce Website",
               description:
                 "E-commerce website with a modern user interface and a smooth shopping experience.",
               techs: ["HTML & CSS", "Bootstrap", "JavaScript"],
-              github: "https://github.com/Sadias061/sylace-commerce.git",
-              live: "https://sylaceshop.vercel.app/",
-              image: "/projects/sylaceshop-ecommerce.svg",
+              live: "https://sylaceshop.netlify.app/",
+              image: "/projects/sylaceshop.webp",
+            },
+            {
+              title: "Novashop E-commerce Website",
+              description:
+                "Novashop e-commerce website with a modern user interface and a smooth shopping experience.",
+              techs: ["TypeScript", "TSX", "tailwindcss", "Next.js"],
+              image: "/projects/novashop.webp",
             },
           ],
         };
@@ -181,18 +204,7 @@ const Projects = () => {
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     <ImageIcon size={16} />
-                  </button>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <GithubIcon size={16} />
-                    </a>
-                  )}
+                  </button> 
                   {project.live && (
                     <a
                       href={project.live}
@@ -262,7 +274,7 @@ const Projects = () => {
                     type="button"
                     onClick={() => setActivePreview(null)}
                     aria-label={content.closePreviewLabel}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors shrink-0"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary/20 transition-colors shrink-0"
                   >
                     <X size={16} />
                   </button>

@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes";
-import { Toaster as Sonner, toast } from "sonner";
+import { X } from "lucide-react";
+import { Toaster as Sonner } from "sonner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
@@ -10,6 +11,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
     <Sonner
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
+      visibleToasts={1}
+      closeButton
+      icons={{
+        close: <X className="h-4 w-4" aria-hidden="true" />,
+      }}
       toastOptions={{
         classNames: {
           toast:
@@ -20,7 +26,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           cancelButton:
             "group-[.toast]:bg-background/15 group-[.toast]:text-background",
           closeButton:
-            "group-[.toast]:text-background/70 group-[.toast]:hover:text-background group-[.toast]:border-background/20",
+            "group-[.toast]:text-background/70 group-[.toast]:hover:text-background !bg-transparent !border-0 hover:!bg-transparent",
         },
       }}
       {...props}
@@ -28,4 +34,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
   );
 };
 
-export { Toaster, toast };
+export { Toaster };

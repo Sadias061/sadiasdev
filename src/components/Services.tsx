@@ -13,37 +13,37 @@ const Services = () => {
       ? {
           sectionLabel: "Services",
           heading: "Services",
-          headingAccent: "proposes",
-          subtitle: "Creation de sites web vitrines et solutions adaptees a vos besoins.",
+          headingAccent: "proposés",
+          subtitle: "Création de sites web vitrines et solutions adaptées à vos besoins.",
           items: [
             {
-              title: "Developpement Frontend",
+              title: "Développement Frontend",
               description:
-                "Creation de sites web vitrines modernes, rapides et responsives.",
+                "Création de sites web vitrines modernes, rapides et responsives.",
               Icon: Code2,
             },
             {
-              title: "Developpement Backend",
+              title: "Développement Backend",
               description:
-                "Conception d'APIs securisees, logique metier solide et integration de bases de donnees.",
+                "Conception d'APIs sécurisées, logique métier solide et intégration de bases de données.",
               Icon: Server,
             },
             {
-              title: "Applications Full Stack",
+              title: "Applications Full-Stack",
               description:
-                "Developpement de solutions completes, de l'interface utilisateur jusqu'au deploiement.",
+                "Développement de solutions complètes, de l'interface utilisateur jusqu'au déploiement.",
               Icon: Layers3,
             },
             {
-              title: "Conseil & Accompagnement",
+              title: "Conseil & Acompagnement",
               description:
-                "Accompagnement en informatique et coaching trading: strategie, discipline et gestion du risque.",
+                "Accompagnement en informatique et coaching en trading : stratégie, discipline et gestion du risque.",
               Icon: Handshake,
             },
             {
-              title: "Maintenance & Support",
+              title: "Maintenance & Support Technique",
               description:
-                "Suivi continu, corrections, evolutions et assistance technique pour garder vos applications stables.",
+                "Suivi continu, corrections, évolutions et assistance technique pour garder vos applications stables.",
               Icon: LifeBuoy,
             },
           ],
@@ -52,24 +52,24 @@ const Services = () => {
           sectionLabel: "Services",
           heading: "Services",
           headingAccent: "offered",
-          subtitle: "Showcase website creation and complete solutions tailored to your needs.",
+          subtitle: "Creation of showcase websites and complete solutions adapted to your needs.",
           items: [
             {
               title: "Frontend Development",
               description:
-                "Creation of modern, fast and responsive showcase websites.",
+                "Creation of modern, fast and responsive showcase websites and web applications.",
               Icon: Code2,
             },
             {
               title: "Backend Development",
               description:
-                "Secure API design, strong business logic and reliable database integration.",
+                "Secure API design, strong business logic and reliable database integration for web applications.",
               Icon: Server,
             },
             {
-              title: "Full Stack Applications",
+              title: "Full-Stack Applications",
               description:
-                "End-to-end product development, from user interface to deployment.",
+                "End-to-end product development, from user interface to deployment for web applications.",
               Icon: Layers3,
             },
             {
@@ -79,9 +79,9 @@ const Services = () => {
               Icon: Handshake,
             },
             {
-              title: "Maintenance & Support",
+              title: "Maintenance & Support Technique",
               description:
-                "Ongoing support, fixes and improvements to keep your applications stable.",
+                "Ongoing support, fixes and improvements to keep your web applications stable.",
               Icon: LifeBuoy,
             },
           ],
